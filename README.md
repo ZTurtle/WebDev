@@ -10,5 +10,5 @@
 - implement add function
 - whole lotta other stuff
 
-## What it looks like now (need food pics)
+## What it looks like now (need food pics) 
 ![Screenshot](https://github.com/ZTurtle/WebDev/blob/main/Screenshot_5.png?raw=true)
