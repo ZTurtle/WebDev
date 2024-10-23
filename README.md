@@ -8,4 +8,4 @@
 - whole lotta other stuff
 
 ## What it looks like now (need food pics)
-![alt text]([http://url/to/img.png](https://github.com/ZTurtle/WebDev/blob/main/Screenshot_5.png))
+![alt text](http://url/to/img.png](https://github.com/ZTurtle/WebDev/blob/main/Screenshot_5.png)
