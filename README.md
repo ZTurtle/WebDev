@@ -1,4 +1,7 @@
 # Currently Just making list of recipes page. 
+### Done so far
+- made for loop that populates the screen with tables (each table is a unique item)
+- made css for each table and currently displaying an example with fake inputs (in the future we take from the database)
 
 ### to-do
 - move the recipe page out of the controller folder
