@@ -21,7 +21,7 @@
 | Meal_Type    | VARCHAR(20)   | Foreign Key (References `Meal_Type(Meal_Type)`), Not Null |
 | Cook_Time    | INT           | Not Null                        |
 | Cal          | INT           | Not Null                        |
-| URL          | VARCHAR(255)  | Optional                        |
+| URL          | VARCHAR(255)  | Not Null                        |
 | Image_URL    | VARCHAR(255)  | Optional                        |
 
 ### Meal_Plans Table
