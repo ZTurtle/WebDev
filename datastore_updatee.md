@@ -68,7 +68,7 @@
 | 3         | 1       | Spaghetti        | Dinner    | 25        | 600 | example.com/spaghetti     | images/spaghetti.jpg |
 | 4         | 2       | Fruit Salad      | Snack     | 5         | 150 | example.com/fruit-salad   | images/fruit.jpg     |
 
-*Image_URL is the directory in our files for where to find the image\n 
+*Image_URL is the directory in our files for where to find the image 
 *URL is the link to actual recipe website 
 
 ### Meal_Plans
