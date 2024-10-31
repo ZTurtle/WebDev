@@ -49,7 +49,7 @@
 
 # Example Data 
 ### Users
-| User_ID | User_Name  | Password       | FName  | Lname  |
+| User_ID | User_Name  | Password       | FName  | LName  |
 |---------|------------|----------------|--------|--------|
 | 1       | john_doe   | password123    |John    |Doe     |
 | 2       | jane_smith | securePass456  |Jane    |Smith   |
