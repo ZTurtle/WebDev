@@ -6,6 +6,8 @@
 | User_ID     | INT          | Primary Key, Auto Increment, Not Null |
 | User_Name   | VARCHAR(50)  | Not Null             |
 | Password    | VARCHAR(36)  | Not Null             |
+|FName        | VARCHAR(50)  | Unique, Not Null     |
+|LName        | VARCHAR(50)  | Unique, Not Null     |
 
 ### Meal_Type Table
 | Column      | Type         | Constraints           |
@@ -47,10 +49,10 @@
 
 # Example Data 
 ### Users
-| User_ID | User_Name  | Password       |
-|---------|------------|----------------|
-| 1       | john_doe   | password123    |
-| 2       | jane_smith | securePass456  |
+| User_ID | User_Name  | Password       | FName  | Lname  |
+|---------|------------|----------------|--------|--------|
+| 1       | john_doe   | password123    |John    |Doe     |
+| 2       | jane_smith | securePass456  |Jane    |Smith   |
 
 ### Meal_Type
 | Meal_Type    |
