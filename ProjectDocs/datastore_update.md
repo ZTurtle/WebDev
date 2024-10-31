@@ -4,10 +4,10 @@
 | Column      | Type         | Constraints           |
 |-------------|--------------|-----------------------|
 | User_ID     | INT          | Primary Key, Auto Increment, Not Null |
-| User_Name   | VARCHAR(50)  | Not Null             |
+| User_Name   | VARCHAR(50)  | Unique,Not Null             |
 | Password    | VARCHAR(36)  | Not Null             |
-|FName        | VARCHAR(50)  | Unique, Not Null     |
-|LName        | VARCHAR(50)  | Unique, Not Null     |
+|FName        | VARCHAR(50)  |Not Null              |
+|LName        | VARCHAR(50)  |Not Null     |
 
 ### Meal_Type Table
 | Column      | Type         | Constraints           |
