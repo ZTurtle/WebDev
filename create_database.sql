@@ -28,7 +28,7 @@ CREATE TABLE Recipes (
     Meal_Type VARCHAR(20) NOT NULL,
     Cook_Time INT NOT NULL,
     Cal INT NOT NULL,
-    URL VARCHAR(255),
+    URL VARCHAR(255) Not Null,
     Image_URL VARCHAR(255),
     PRIMARY KEY (Recipe_ID),
     FOREIGN KEY (Meal_Type) REFERENCES Meal_Type(Meal_Type),
