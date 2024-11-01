@@ -5,7 +5,7 @@
 |-------------|--------------|-----------------------|
 | User_ID     | INT          | Primary Key, Auto Increment, Not Null |
 | User_Name   | VARCHAR(50)  | Unique,Not Null             |
-| Password    | VARCHAR(36)  | Not Null             |
+| Password    | VARCHAR(60)  | Not Null             |
 |FName        | VARCHAR(50)  |Not Null              |
 |LName        | VARCHAR(50)  |Not Null     |
 
