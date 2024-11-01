@@ -10,5 +10,17 @@
 - implement add function
 - whole lotta other stuff
 
+# Updates
+## Ama (11/01/2024)
+- Registration is fully developed in the back-end. Will take users to homepage (`home.php`) after registering, which is not yet implemented.
+- Added a bunch of folders and files I needed for registration/login implementation
+- Reorganized the Directory:
+  - Anything not that will not be part of the htdocs XAAMP file should be put in the ProjectDocs folder
+  - The WebDevProject folder should **only have things that are actually gonna be part of our web application**
+- Huge update on the WebDevProject/Controller/index.php file: Created $action implementation just like we do in class.
+- Will be making branch moving forward to finish the login implementation
+- Added `.gitignore` file because I needed it for my macOS when working with Git in VSCode 
+
+
 ## What it looks like now (need food pics) 
 ![Screenshot](https://github.com/ZTurtle/WebDev/blob/main/Screenshot_5.png?raw=true)
