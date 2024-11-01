@@ -12,7 +12,7 @@
 
 # Updates
 ## Ama (11/01/2024)
-- Huge update on the WebDevProject/Controller/index.php file: Created $action implementation just like we do in class. Made it as a pull request for you to look at first.
+- **Huge update on the WebDevProject/Controller/index.php file:** Created $action implementation just like we do in class. Made it as a pull request for you to look at first.
 - Registration is fully developed in the back-end. Will take users to homepage (`home.php`) after registering, which is not yet implemented.
 - Added a bunch of folders and files I needed for registration/login implementation
 - Reorganized the Directory:
