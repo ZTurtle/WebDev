@@ -12,7 +12,7 @@ CREATE TABLE Users (
     User_Name VARCHAR(50) NOT NULL,
     FName VARCHAR(50) NOT NULL, 
     LName VARCHAR(50) NOT NULL,  
-    Password VARCHAR(36) NOT NULL,
+    Password VARCHAR(60) NOT NULL,
     UNIQUE (User_Name),  -- Enforce unique usernames
     PRIMARY KEY (User_ID)
 );
