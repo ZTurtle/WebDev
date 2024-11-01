@@ -19,8 +19,10 @@
   - Anything not that will not be part of the htdocs XAAMP file should be put in the ProjectDocs folder
   - The WebDevProject folder should **only have things that are actually gonna be part of our web application**
 - Will be making branch moving forward to finish the login implementation
-- Added `.gitignore` file because I needed it for my macOS when working with Git in VSCode 
+- Added `.gitignore` file because I needed it for my macOS when working with Git in VSCode
 
+How the Landing Page Currently looks like on my end (using my own main.css file I created). 
+<img src="https://github.com/ZTurtle/WebDev/blob/main/ProjectDocs/LandingPage.png?raw=true" alt="Landing Page" width="500" />
 
 ## What it looks like now (need food pics) 
-![Screenshot](https://github.com/ZTurtle/WebDev/blob/main/Screenshot_5.png?raw=true)
+![Screenshot](https://github.com/ZTurtle/WebDev/blob/main/ProjectDocs/Screenshot_5.png?raw=true)
