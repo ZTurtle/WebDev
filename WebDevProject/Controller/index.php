@@ -1,81 +1,84 @@
 <?php 
-/*$dsn = 'mysql:host=localhost; dbname=payroll';
-$username = 'employee_manager';
-$password = 'pa55word';
-
-try {
-$db = new PDO($dsn, $username, $password);
-} catch (PDOException $e) {
-$error_message = $e->getMessage();
-echo '<p>An error occurred while connecting to
-the database: $error_message </p>';
-}*/
-
-$recipes = [
-    $recipe1 =[
-        "RECIPE_NAME" => "Braised Beef",
-        "RECIPE_TYPE" => "Breakfast",
-        "RECIPE_COOK_TIME" => "2 hours",
-        "RECIPE_CALORIES" => "640",
-        "RECIPE_SERVINGS" => "8",
-    "RECIPE_IMAGE" => "./Songs_in_the_key_of_life.jpg",],
-        $recipe3 =[
-            "RECIPE_NAME" => "Braised Beef",
-            "RECIPE_TYPE" => "Breakfast",
-            "RECIPE_COOK_TIME" => "2 hours",
-            "RECIPE_CALORIES" => "640",
-            "RECIPE_SERVINGS" => "8",
-        "RECIPE_IMAGE" => "./SabaBLP.jpg",],
-    $recipe2 =[
-        "RECIPE_NAME" => "Braised Beef",
-        "RECIPE_TYPE" => "Breakfast",
-        "RECIPE_COOK_TIME" => "2 hours",
-        "RECIPE_CALORIES" => "640",
-        "RECIPE_SERVINGS" => "8",
-        "RECIPE_IMAGE" => "./candydrip.jpg",]
-
-];
-
-
+    include '../Model/database.php';
+    include '../Model/user_db.php';
+    include '../errors.php';
     
-?>
+    session_start();
+    
+    $action = filter_input(INPUT_POST, 'action');
+    if ($action == NULL) {
+        $action = filter_input(INPUT_GET, 'action');
+    
+    }
+    //for debugging 
+    echo 'current action: '. $action;
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Recipe List</title>
-    <link rel="stylesheet" href="../recipe_table.css" />
-</head>
-<body>
-    <main>
-        <h1>List of Recipes</h1>
-        <div class="row">
-            <?php foreach ($recipes as $recipe) :?>
-                <div class="column">
-                <table>
-                <tr>
-                <th>
-                    <?php echo '<br>'. '<h3>'. $recipe['RECIPE_NAME'] . '</h3>'; ?>
-                </th>
-                </tr>
-                <tr>
-                <td>
-                    <?php 
-                        echo 
-                        '<br>'. $recipe['RECIPE_TYPE'] . '<br>' .
-                        '<br>'. '<img src = "' . $recipe['RECIPE_IMAGE'].  ' "width = "150" height="150" alt = "Recipe Image">' . '<br>' .
-                        '<br>' . $recipe['RECIPE_COOK_TIME'] . '<br>' .
-                        '<br>' . $recipe['RECIPE_CALORIES'] . '<br>' .
-                        '<br>' . $recipe['RECIPE_SERVINGS'] . '<br>';
-                    ?>
-                </td>
-            </tr>
-            </table>
-            </div>
-            <?php endforeach; ?>
-        </div>
+    switch ($action){
+        case 'register':
+            $error_message1= '';
+            include '../View/register_form.php';
+            
+        
+            break; 
+        
+        case 'login': //work in progress...
+            include '../View/login_form.php';
+            break;
+        case 'register_attempt':
+            //get inputs from register_form.php
+            $fname= filter_input(INPUT_POST,'fname',FILTER_SANITIZE_STRING);
+            $lname= filter_input(INPUT_POST,'lname',FILTER_SANITIZE_STRING);
+            $UserName= filter_input(INPUT_POST,'UserName',FILTER_SANITIZE_STRING);
+            $Password= filter_input(INPUT_POST,'Password',FILTER_SANITIZE_STRING);
+            $Confirm_Password= filter_input(INPUT_POST, 'Confirm_Password',FILTER_SANITIZE_STRING);
+
+            if (validate_username($UserName)){//if valid username entered
+                if ($Password === $Confirm_Password){
+                    add_user($UserName,$Password,$fname,$lname);
+                    $userID= get_userID($UserName);
+                    $_SESSION['USERID']= $userID; //save USERID  to session cookie
+                    header('Location: .?action=homepage');
+    
+                } else {//invalid username
+                    $error_message1= $messages['password_mismatch'];
+                    include '../View/register_form.php';
+                }
+                
+            
+            } else{ //invalid username was entered
+                $error_message1= $messages['user_taken'];
+                include '../View/register_form.php';
+
+            }
+            break;
+
+        
+        case 'login_attempt': //work in progress...
+            $username = filter_input(INPUT_POST, 'UserName', FILTER_SANITIZE_STRING);
+            $password = filter_input(INPUT_POST, 'Password');
+
+            if ($username && $password) { //save user info to session
+                $user = get_user_by_username($username);
+                if ($user && password_verify($password, $user['Password'])) {
+                    $_SESSION['UserID'] = $user['User_ID'];
+                    $_SESSION['UserName'] = $user['User_Name'];
+                    echo'username valid';
+                } else {
+                    echo "Invalid username or password.";
+                }
+            } else {
+                echo "Please enter both username and password.";
+            }
+            break;
+        case 'homepage': 
             
 
-    </main>
-</body>
-</html>
+            include '../View/home.php';
+            break;
+
+        default:
+            echo 'No case chosen';
+
+    }
+
+    ?>
