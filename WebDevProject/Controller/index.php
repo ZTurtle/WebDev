@@ -22,20 +22,21 @@
             break; 
         
         case 'login': //work in progress...
+            $error_message2='';
             include '../View/login_form.php';
             break;
         case 'register_attempt':
             //get inputs from register_form.php
             $fname= filter_input(INPUT_POST,'fname',FILTER_SANITIZE_STRING);
             $lname= filter_input(INPUT_POST,'lname',FILTER_SANITIZE_STRING);
-            $UserName= filter_input(INPUT_POST,'UserName',FILTER_SANITIZE_STRING);
-            $Password= filter_input(INPUT_POST,'Password',FILTER_SANITIZE_STRING);
-            $Confirm_Password= filter_input(INPUT_POST, 'Confirm_Password',FILTER_SANITIZE_STRING);
+            $username= filter_input(INPUT_POST,'UserName',FILTER_SANITIZE_STRING);
+            $password= filter_input(INPUT_POST,'Password',FILTER_SANITIZE_STRING);
+            $confirm_password= filter_input(INPUT_POST, 'Confirm_Password',FILTER_SANITIZE_STRING);
 
             if (validate_username($UserName)){//if valid username entered
-                if ($Password === $Confirm_Password){
-                    add_user($UserName,$Password,$fname,$lname);
-                    $userID= get_userID($UserName);
+                if ($password === $confirm_password){ //check password match 
+                    add_user($username,$password,$fname,$lname);
+                    $userID= get_userID($username);
                     $_SESSION['USERID']= $userID; //save USERID  to session cookie
                     header('Location: .?action=homepage');
     
@@ -53,24 +54,32 @@
             break;
 
         
-        case 'login_attempt': //work in progress...
+        case 'login_attempt': 
             $username = filter_input(INPUT_POST, 'UserName', FILTER_SANITIZE_STRING);
             $password = filter_input(INPUT_POST, 'Password');
 
-            if ($username && $password) { //save user info to session
-                $user = get_user_by_username($username);
-                if ($user && password_verify($password, $user['Password'])) {
-                    $_SESSION['UserID'] = $user['User_ID'];
-                    $_SESSION['UserName'] = $user['User_Name'];
-                    echo'username valid';
-                } else {
-                    echo "Invalid username or password.";
-                }
+            if ($username && $password) { //validate user info
+                $user= get_user_by_username($username);
+                if (!validate_username($username) && password_verify($password, $user['Password'])){
+                    
+                        $_SESSION['userID'] = $user['UserID'];
+                        $_SESSION['username'] = $user['UserName'];
+                        // echo'username valid';
+                        // echo $_SESSION['userID'], $_SESSION['username'];
+                        header('Location: .?action=home');
+
+                }else {
+                    $error_message2= $messages['invalid_login'];
+                    include '../View/login_form.php';
+                    }
+                
             } else {
-                echo "Please enter both username and password.";
+                $error_message2= $messages['incomplete_login'];
+                include '../View/login_form.php';
             }
+
             break;
-        case 'homepage': 
+        case 'home': 
             
 
             include '../View/home.php';

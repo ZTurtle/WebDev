@@ -7,7 +7,6 @@ $password= 'pa55word';
 
 try{
     $db= new PDO($dsn, $username, $password);
-    echo "Connected Succesfully";
 
 }
 catch (PDOException $e){
