@@ -22,7 +22,8 @@
 - Added `.gitignore` file because I needed it for my macOS when working with Git in VSCode
 ## Andrew (11/4/2024)
 - everything that was previously in the index file was moved to recipeView.php
-- additionally added pageHeader.php, header.css, and recipe_table.css
+- recipeView.php is what i did in the library
+- additionally added pageHeader.php, header.css, and updated recipe_table.css
 - all are used in recipeView.php
 How the Landing Page Currently looks like on my end (using my own main.css file I created). 
 <img src="https://github.com/ZTurtle/WebDev/blob/main/ProjectDocs/LandingPage.png?raw=true" alt="Landing Page" width="500" />
