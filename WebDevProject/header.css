@@ -1,0 +1,42 @@
+.headerColumn{
+    float: left;
+    width: 33%;
+}
+.headerRow:after{
+    content: "";
+    display:table;
+    clear:both;
+
+}
+.headerColumn:hover{
+    float: left;
+    width: 33%;
+    background-color: color-mix(in srgb, black 10%, red 90%);
+}
+.headerA:link{
+    font-size:large;
+    color: black;
+    font-style: bold;
+}
+.a:link{
+    font-size:large;
+    color: black;
+    font-style: bold;
+    text-decoration: none;
+}
+.headerButton{
+    background-color: lightblue;
+    width:100%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    text-align: center;
+    font-size:x-large;
+    box-shadow: 5px 5px 5px #999;
+    border:none;
+}
+.headerButton:hover{
+    background-color: color-mix(in srgb, black 10%, lightblue 90%);
+    border-width: 0;
+    border:none;
+
+}
