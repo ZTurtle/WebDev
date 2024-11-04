@@ -20,7 +20,10 @@
   - The WebDevProject folder should **only have things that are actually gonna be part of our web application**
 - Will be making branch moving forward to finish the login implementation
 - Added `.gitignore` file because I needed it for my macOS when working with Git in VSCode
-
+## Andrew (11/4/2024)
+- everything that was previously in the index file was moved to recipeView.php
+- additionally added pageHeader.php, header.css, and recipe_table.css
+- all are used in recipeView.php
 How the Landing Page Currently looks like on my end (using my own main.css file I created). 
 <img src="https://github.com/ZTurtle/WebDev/blob/main/ProjectDocs/LandingPage.png?raw=true" alt="Landing Page" width="500" />
 
