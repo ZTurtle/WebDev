@@ -8,60 +8,60 @@ DROP TABLE IF EXISTS Users;
 
 -- Create Users table
 CREATE TABLE Users (
-    User_ID INT NOT NULL AUTO_INCREMENT,
-    User_Name VARCHAR(50) NOT NULL,
+    UserID INT NOT NULL AUTO_INCREMENT,
+    Username VARCHAR(50) NOT NULL,
     FName VARCHAR(50) NOT NULL, 
     LName VARCHAR(50) NOT NULL,  
     Password VARCHAR(60) NOT NULL,
-    UNIQUE (User_Name),  -- Enforce unique usernames
-    PRIMARY KEY (User_ID)
+    UNIQUE (Username),  -- Enforce unique usernames
+    PRIMARY KEY (UserID)
 );
 
 -- Create Meal_Type table
 CREATE TABLE Meal_Type (
-    Meal_Type VARCHAR(20) NOT NULL,
-    PRIMARY KEY (Meal_Type)
+    MealType VARCHAR(20) NOT NULL,
+    PRIMARY KEY (MealType)
 );
 
 -- Create Recipes table
 CREATE TABLE Recipes (
-    Recipe_ID INT NOT NULL AUTO_INCREMENT,
-    User_ID INT NOT NULL,
-    Recipe_Name VARCHAR(100) NOT NULL,
-    Meal_Type VARCHAR(20) NOT NULL,
-    Cook_Time INT NOT NULL,
+    RecipeID INT NOT NULL AUTO_INCREMENT,
+    UserID INT NOT NULL,
+    RecipeName VARCHAR(100) NOT NULL,
+    MealType VARCHAR(20) NOT NULL,
+    CookTime INT NOT NULL,
     Cal INT NOT NULL,
     URL VARCHAR(255) NOT NULL,
-    Image_URL VARCHAR(255),
-    PRIMARY KEY (Recipe_ID),
-    FOREIGN KEY (Meal_Type) REFERENCES Meal_Type(Meal_Type),
-    FOREIGN KEY (User_ID) REFERENCES Users(User_ID) ON DELETE CASCADE  -- Added ON DELETE CASCADE
+    ImageURL VARCHAR(255),
+    PRIMARY KEY (RecipeID),
+    FOREIGN KEY (MealType) REFERENCES Meal_Type(MealType),
+    FOREIGN KEY (UserID) REFERENCES Users(UserID) ON DELETE CASCADE  -- Added ON DELETE CASCADE
 );
 
 -- Create Meal_Plans table
 CREATE TABLE Meal_Plans (
-    Meal_Plan_ID INT NOT NULL AUTO_INCREMENT,
-    User_ID INT NOT NULL,
-    PRIMARY KEY (Meal_Plan_ID),
-    FOREIGN KEY (User_ID) REFERENCES Users(User_ID) ON DELETE CASCADE  -- Added ON DELETE CASCADE
+    MealPlanID INT NOT NULL AUTO_INCREMENT,
+    UserID INT NOT NULL,
+    PRIMARY KEY (MealPlanID),
+    FOREIGN KEY (UserID) REFERENCES Users(UserID) ON DELETE CASCADE  -- Added ON DELETE CASCADE
 );
 
 -- Create Meal_Plan_Recipes table (junction table)
 CREATE TABLE Meal_Plan_Recipes (
-    Meal_Plan_ID INT NOT NULL,
-    Recipe_ID INT NOT NULL,
-    PRIMARY KEY (Meal_Plan_ID, Recipe_ID),
-    FOREIGN KEY (Meal_Plan_ID) REFERENCES Meal_Plans(Meal_Plan_ID) ON DELETE CASCADE,  -- Added ON DELETE CASCADE
-    FOREIGN KEY (Recipe_ID) REFERENCES Recipes(Recipe_ID) ON DELETE CASCADE  -- Added ON DELETE CASCADE
+    MealPlanID INT NOT NULL,
+    RecipeID INT NOT NULL,
+    PRIMARY KEY (MealPlanID, RecipeID),
+    FOREIGN KEY (MealPlanID) REFERENCES Meal_Plans(MealPlanID) ON DELETE CASCADE,  -- Added ON DELETE CASCADE
+    FOREIGN KEY (RecipeID) REFERENCES Recipes(RecipeID) ON DELETE CASCADE  -- Added ON DELETE CASCADE
 );
 
 -- Create Schedule table
 CREATE TABLE Schedule (
-    Schedule_ID INT NOT NULL AUTO_INCREMENT,
-    User_ID INT NOT NULL,
-    Meal_Plan_ID INT NOT NULL,
-    Meal_Date DATE NOT NULL,
-    PRIMARY KEY (Schedule_ID),
-    FOREIGN KEY (Meal_Plan_ID) REFERENCES Meal_Plans(Meal_Plan_ID) ON DELETE CASCADE,  -- Added ON DELETE CASCADE
-    FOREIGN KEY (User_ID) REFERENCES Users(User_ID) ON DELETE CASCADE  -- Added ON DELETE CASCADE
+    ScheduleID INT NOT NULL AUTO_INCREMENT,
+    UserID INT NOT NULL,
+    MealPlanID INT NOT NULL,
+    MealDate DATE NOT NULL,
+    PRIMARY KEY (ScheduleID),
+    FOREIGN KEY (MealPlanID) REFERENCES Meal_Plans(MealPlanID) ON DELETE CASCADE,  -- Added ON DELETE CASCADE
+    FOREIGN KEY (UserID) REFERENCES Users(UserID) ON DELETE CASCADE  -- Added ON DELETE CASCADE
 );
