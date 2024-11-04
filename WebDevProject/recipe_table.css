@@ -1,26 +1,17 @@
 td, th {
     text-align: left;
-    background-color: burlywood;
-    border-bottom-left-radius: 5%;
-    border-bottom-right-radius: 5%;
+    border-radius: 5%;
     border-spacing: 10px;
     font-family: Arial, Helvetica, sans-serif;
     padding-left: 10%;
-}
-td {
-    border-bottom-left-radius: 5%;
-    border-bottom-right-radius: 5%;
+    padding-right: 10%;
 }
 th {
-    background-color:color-mix(in srgb, burlywood 75%, green 25%);
-    border-top-left-radius: 5%;
-    border-top-right-radius: 5%;
     padding-bottom: 5%;
 }
 
 
 h3 {
-    background-color:color-mix(in srgb, burlywood 75%, green 25%);
     margin-top: 0;
     margin-bottom: 0;
 
@@ -48,7 +39,70 @@ h3 {
   }
   
   table {
+    background-color: lightgrey;
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
+    box-shadow: 5px 5px 5px #999;
+    border-radius: 5%;
+    margin-bottom: 10px;
   }
+.cardLabels{
+  font-size: medium;
+  font-weight: bold;
+}
+.labelContent{
+  font-size: small;
+  padding-left: 0;
+  margin: 0;
+}
+tr:hover{
+  background-color: grey;
+}
+tr{
+  border-radius: 5%;
+}
+.recipeButton{
+  background-color: lightblue;
+  width:50%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  text-align: center;
+  font-size:x-large;
+  box-shadow: 5px 5px 5px #999;
+  border:none;
+}
+.recipeButton:hover{
+  background-color: color-mix(in srgb, black 10%, lightblue 90%);
+  border-width: 0;
+  border:none;
+
+}
+.moveRight{
+  margin-left: 20%;
+  box-shadow: -5px -5px -5px #999;
+}
+.sidebar{
+  background-color: red;
+  width: 17.5%;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  }
+.sideBarButton{
+  width:50%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  text-align: center;
+  font-size:x-large;
+  border:none;
+  color:black;
+  text-decoration: none;
+}
+.sideBarButton:hover{
+  background-color: color-mix(in srgb, black 10%, red 90% );
+}
+ul{
+  list-style-type: none;
+  width: 100%;
+}
