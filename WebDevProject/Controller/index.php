@@ -113,7 +113,11 @@
 
         default:
             echo 'No case chosen';
+        case 'filter_recipes':
+            //unfinished
 
+            include '../View/recipePage.php'
+            break;
     }
 
     ?>

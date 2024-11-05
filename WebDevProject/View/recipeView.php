@@ -48,11 +48,34 @@ $recipes = [
 </head>
 <body>
     <div class = "sidebar">
+    <form action="." method="post" id="filter_recipes">
+        <input type="hidden" name="action" value="filter_recipes">
         <ul>
-        <li><a href='#' class = "button sideBarButton"> test </a></li>
-        <li><a href='#' class = "button sideBarButton"> test </a></li>
-        <li><a href='#' class = "button sideBarButton"> test </a></li>
-</ul>
+        <li> <h3> Meal Type: </h3>
+        <select name="mealTypeFilter" id="mealTypeFilter">
+            <option value="Breakfast">Breakfast</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option>
+        </select>
+        </li>
+        <li><h3> Filter by Calories </h3></li>
+        <li>
+        <input type="Minimum" name= "MinCalories" placeholder = "Minimum">
+        <a> to </a>
+        <input type="Maximum" name= "MaxCalories" placeholder = "Maximum">
+        <br>
+        <li><h3> Filter by Cook Time </h3></li>
+        <li>
+        <input type="Minimum" name= "MinCookTime" placeholder = "Minimum">
+        <a> to </a>
+        <input type="Maximum" name= "MaxCookTime" placeholder = "Maximum">
+        </li>
+        <li>
+        <input type="submit" value="Filter" class= "button sideBarButton">
+        </li>
+        </ul>
+
+    </form>
     </div>
     <div class = "moveRight">
     <main>
