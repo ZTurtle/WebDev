@@ -10,7 +10,7 @@
     <form action= "." method="post">
         <input type="hidden" name="action" value= "login_attempt">
         <lable>Username</lable>
-        <input type="text" name="UserName"><br><br>
+        <input type="text" name="Username"><br><br>
 
         <label> Password</label>
         <input type="password" name= "Password" required>
