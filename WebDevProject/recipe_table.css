@@ -85,10 +85,11 @@ tr{
 .sidebar{
   background-color: lightblue;
   width: 17.5%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
-  position: fixed;
   box-shadow: 5px 5px 5px #999;
+  display: inline-block;
+  position: absolute;
   }
 .sideBarButton{
   width:50%;

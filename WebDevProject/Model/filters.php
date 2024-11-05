@@ -18,4 +18,16 @@ function filter_recipes($minCal, $maxCal, $minCook, $maxCook, $mealType){
     $statement->closeCursor();
     return $recipes;
 }
+
+function all_recipes(){
+    global $db;
+    $query = 'SELECT * 
+    FROM Recipes';
+
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $recipes = $statement->fetchAll();
+    $statement->closeCursor();
+    return $recipes;
+}
 ?>
