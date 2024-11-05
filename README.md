@@ -31,7 +31,8 @@
 - all are used in recipeView.php
 
 ## Ama (11/05/2024)
-- Home page is fully implementented. Needs to be styled.
+- Home page is almost fully implementented. Needs to be styled.
+- I still need to make buttons to view the links
 - Will now be working on the schedule page.
 
   How the home page looks currently:
