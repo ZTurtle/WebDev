@@ -3,7 +3,8 @@
     include '../Model/user_db.php';
     include '../errors.php';
     include '../Model/schedule_db.php';
-    
+    include '../Model/filters.php';
+
     session_start();
     
     $action = filter_input(INPUT_POST, 'action');
@@ -110,6 +111,8 @@
 
             
             break;
+
+    
         case 'filter_recipes':
                 //unfinished
                 $minCook = filter_input(INPUT_POST, 'minCook');
@@ -118,10 +121,9 @@
                 $maxCal = filter_input(INPUT_POST, 'maxCal');
                 $mealType = filter_input(INPUT_POST, 'mealType');
                 
-                echo $mealType . $minCal . $maxCal;
-                filter_recipes($minCal, $maxCal, $minCook, $maxCook, $mealType);
+                $recipes = filter_recipes($minCal, $maxCal, $minCook, $maxCook, $mealType);
     
-                include '../View/recipePage.php';
+                include '../View/recipeView.php';
                 break;
         default:
             echo 'No case chosen';

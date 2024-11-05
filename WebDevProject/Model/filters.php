@@ -1,5 +1,6 @@
 <?php
 function filter_recipes($minCal, $maxCal, $minCook, $maxCook, $mealType){
+    global $db;
     $query = 'SELECT *
     FROM Recipes
     WHERE Cal BETWEEN :minCal AND :maxCal 
@@ -9,12 +10,12 @@ function filter_recipes($minCal, $maxCal, $minCook, $maxCook, $mealType){
     $statement = $db->prepare($query);
     $statement->bindValue(':minCal', $minCal);
     $statement->bindValue(':maxCal', $maxCal);
-    $statement->bindValue(':MealType', $mealType);
+    $statement->bindValue(':mealType', $mealType);
     $statement->bindValue(':minCook', $minCook);
     $statement->bindValue(':maxCook', $maxCook);
     $statement->execute();
-    $Meals = $statement->fetchAll();
+    $recipes = $statement->fetchAll();
     $statement->closeCursor();
-    return $Meals;
+    return $recipes;
 }
 ?>

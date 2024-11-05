@@ -6,7 +6,7 @@
 */
 
 /* Insert sample user (if it is not already set up) */
-/* 
+/*
 INSERT INTO Users (UserID, Username, FName, LName, Password) VALUES 
 (1, 'testuser', 'Test', 'User', 'password123');
 */

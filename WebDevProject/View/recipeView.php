@@ -10,7 +10,7 @@ $error_message = $e->getMessage();
 echo '<p>An error occurred while connecting to
 the database: $error_message </p>';
 }*/
-
+/*
 $recipes = [
     $recipe1 =[
         "RECIPE_NAME" => "Braised Beef",
@@ -35,9 +35,9 @@ $recipes = [
         "RECIPE_IMAGE" => "./candydrip.jpg",]
 
 ];
+*/
 
 
-    
 ?>
 
 
@@ -48,7 +48,7 @@ $recipes = [
 </head>
 <body>
     <div class = "sidebar">
-    <form action="." method="post" id="filter_recipes">
+    <form action="../Controller/index.php" method="post" id="filter_recipes">
         <input type="hidden" name="action" value="filter_recipes">
         <ul>
         <li> <h3> Meal Type: </h3>
