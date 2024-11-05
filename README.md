@@ -11,7 +11,7 @@
 - whole lotta other stuff
 
 # Updates
-Project Task Manger: [Google Sheets](https://docs.google.com/spreadsheets/d/1Z7VhM-vTWlsauJfi8g3YPr1uVNYuFAaF5FlJcw7KtQQ/edit?usp=sharing).
+**Project Task Manger:** [Google Sheets](https://docs.google.com/spreadsheets/d/1Z7VhM-vTWlsauJfi8g3YPr1uVNYuFAaF5FlJcw7KtQQ/edit?usp=sharing).
 ## Ama (11/01/2024)
 - **Huge update on the WebDevProject/Controller/index.php file:** Created $action implementation just like we do in class. Made it as a pull request for you to look at first.
 - Registration is fully developed in the back-end. Will take users to homepage (`home.php`) after registering, which is not yet implemented.
@@ -21,13 +21,23 @@ Project Task Manger: [Google Sheets](https://docs.google.com/spreadsheets/d/1Z7V
   - The WebDevProject folder should **only have things that are actually gonna be part of our web application**
 - Will be making branch moving forward to finish the login implementation
 - Added `.gitignore` file because I needed it for my macOS when working with Git in VSCode
+
+  How the Landing Page Currently looks like on my end (using my own main.css file I created). 
+  <img src="https://github.com/ZTurtle/WebDev/blob/main/ProjectDocs/LandingPage.png?raw=true" alt="Landing Page" width="500" />
 ## Andrew (11/4/2024)
 - everything that was previously in the index file was moved to recipeView.php
 - recipeView.php is what i did in the library
 - additionally added pageHeader.php, header.css, and updated recipe_table.css
 - all are used in recipeView.php
-How the Landing Page Currently looks like on my end (using my own main.css file I created). 
-<img src="https://github.com/ZTurtle/WebDev/blob/main/ProjectDocs/LandingPage.png?raw=true" alt="Landing Page" width="500" />
+
+## Ama (11/05/2024)
+- Home page is fully implementented. Needs to be styled.
+
+  How the home page looks currently:
+  <img width="500" alt="image" src="https://github.com/user-attachments/assets/e31df356-5ab1-4f15-bd55-d6689ff6e2e3">
+
+
+
 
 ## What it looks like now (need food pics) 
 ![Screenshot](https://github.com/ZTurtle/WebDev/blob/main/ProjectDocs/Screenshot_5.png?raw=true)
