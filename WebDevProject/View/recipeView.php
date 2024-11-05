@@ -52,7 +52,7 @@ $recipes = [
         <input type="hidden" name="action" value="filter_recipes">
         <ul>
         <li> <h3> Meal Type: </h3>
-        <select name="mealTypeFilter" id="mealTypeFilter">
+        <select name="mealType" id="mealType">
             <option value="Breakfast">Breakfast</option>
             <option value="Lunch">Lunch</option>
             <option value="Dinner">Dinner</option>
@@ -60,15 +60,15 @@ $recipes = [
         </li>
         <li><h3> Filter by Calories </h3></li>
         <li>
-        <input type="Minimum" name= "MinCalories" placeholder = "Minimum">
+        <input type="text" name= "minCal" placeholder = "Minimum">
         <a> to </a>
-        <input type="Maximum" name= "MaxCalories" placeholder = "Maximum">
+        <input type="text" name= "maxCal" placeholder = "Maximum">
         <br>
         <li><h3> Filter by Cook Time </h3></li>
         <li>
-        <input type="Minimum" name= "MinCookTime" placeholder = "Minimum">
+        <input type="text" name= "minCook" placeholder = "Minimum">
         <a> to </a>
-        <input type="Maximum" name= "MaxCookTime" placeholder = "Maximum">
+        <input type="text" name= "maxCook" placeholder = "Maximum">
         </li>
         <li>
         <input type="submit" value="Filter" class= "button sideBarButton">

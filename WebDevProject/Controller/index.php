@@ -110,14 +110,22 @@
 
             
             break;
-
+        case 'filter_recipes':
+                //unfinished
+                $minCook = filter_input(INPUT_POST, 'minCook');
+                $maxCook = filter_input(INPUT_POST, 'maxCook');
+                $minCal = filter_input(INPUT_POST, 'minCal');
+                $maxCal = filter_input(INPUT_POST, 'maxCal');
+                $mealType = filter_input(INPUT_POST, 'mealType');
+                
+                echo $mealType . $minCal . $maxCal;
+                filter_recipes($minCal, $maxCal, $minCook, $maxCook, $mealType);
+    
+                include '../View/recipePage.php';
+                break;
         default:
             echo 'No case chosen';
-        case 'filter_recipes':
-            //unfinished
-
-            include '../View/recipePage.php'
-            break;
+        
     }
 
     ?>
