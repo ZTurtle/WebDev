@@ -32,8 +32,8 @@
 
 ## Ama (11/05/2024)
 - Home page is fully implementented. Needs to be styled.
-
   How the home page looks currently:
+
   <img width="500" alt="image" src="https://github.com/user-attachments/assets/e31df356-5ab1-4f15-bd55-d6689ff6e2e3">
 
 
