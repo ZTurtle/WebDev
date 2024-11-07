@@ -91,12 +91,17 @@
             // get list of recipes in meal plan scheudle 
             $todaysdate= date('Y-m-d');
             $mealplanid= get_todays_mealplanid($userID,$todaysdate);
-            $recipes= get_recipes_by_mealplanid($mealplanid);
-            //get total calories
-            $totalcal= 0;
-            foreach ($recipes as $recipe){
-                $totalcal= $totalcal+ $recipe['Cal'];
+            
+            if ($mealplanid != false){ 
+                $recipes= get_recipes_by_mealplanid($mealplanid);
+                //get total calories
+                $totalcal= 0;
+                foreach ($recipes as $recipe){
+                    $totalcal= $totalcal+ $recipe['Cal'];
+                }
+
             }
+            
             
             include '../View/pageHeader.php';
             include '../View/home.php';
@@ -109,10 +114,10 @@
 
             
             break;
-        case 'weekly_schedule1': //schedule for week one. 
+        case 'weekly_schedule': //schedule for week one. 
             //Task1: Get the dates for the current week (Mon-Sun)
-            $todaysdate= date('Y-m-d');
-            $weeks= getWeekDates($todaysdate);
+            $date= filter_input(INPUT_POST, 'week_date');
+            $weeks= getWeekDates($date);
             print_r($weeks);
 
 

@@ -1,21 +1,28 @@
 
 <?php 
-function get_todays_mealplanid($userid,$todaysDate){
-    //get mealpan id from Schedule table 
+function get_todays_mealplanid($userid,$Date){
+    //Returns: The mealpan id from Schedule table for a certain date. Will return false if no meal plan scheduled for that day.
     global $db;
     $query= 'SELECT MealPlanID FROM Schedule where UserID = :userid and MealDate= :date';
     $statement= $db->prepare($query);
     $statement->bindValue(':userid',$userid);
-    $statement->bindValue(':date',$todaysDate);
+    $statement->bindValue(':date',$Date);
     $statement->execute();
     $mealplanid= $statement->fetch();
+    
+    if ($mealplanid === false){
+        return false;
+    }
+    else {
+        return $mealplanid['MealPlanID']; 
+    }
 
-    return $mealplanid['MealPlanID'];
+    
 
 }
 
-function get_recipes_by_mealplanid($mealplanid){
-    //Gives you the recipes in a meal plan based on the ID
+function get_recipes_by_mealplanid($mealplanid): array{
+    //Returns: Array of recipes in a meal plan based on the mealplanID
     //Joins the Meal_Plan_Recipes table and the Recipes table only selecting the rows of the correct $mealplanid
     global $db;
     $query= 'SELECT  * from Meal_Plan_Recipes LEFT OUTER JOIN Recipes on Meal_Plan_Recipes.RecipeID = Recipes.RecipeID where MealPlanID= :mealplanid';
@@ -29,6 +36,7 @@ function get_recipes_by_mealplanid($mealplanid){
 }
 
 function getWeekDates($startDate) {
+    //Returns: Array of dates Mon-Sun for a week given the start date.
     // Convert $startDate to a DateTime object
     $date = new DateTime($startDate);
     

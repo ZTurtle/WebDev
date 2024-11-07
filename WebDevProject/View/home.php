@@ -13,7 +13,9 @@
     <h2>Welcome, <?php echo $fname;?> </h2>
     <div class="box">
         <h2> Today's Meals</h2>
-        <?php if (!empty($recipes)){}?>  
+        <?php if ($mealplanid == false){?>
+            <p> No meal planned for today</p>
+        <?php } else{ ?>
         <table>
             <tr>
                 <th>Meal</th>
@@ -33,6 +35,7 @@
             <?php endforeach;?>
         </table> 
         <p> Total Cal: <?php echo $totalcal ?></p>
+        <?php }?>
     </div>
 
 </body>
