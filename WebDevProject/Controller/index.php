@@ -98,12 +98,10 @@
                 $totalcal= $totalcal+ $recipe['Cal'];
             }
             
-
+            include '../View/pageHeader.php';
             include '../View/home.php';
-
-
             
-            /* view the the recipes in $recipes for debuggin
+            /* view the the recipes in $recipes for debugging
             echo '\n';
             echo "<pre>";
             print_r($recipes);
@@ -111,7 +109,16 @@
 
             
             break;
+        case 'weekly_schedule1': //schedule for week one. 
+            //Task1: Get the dates for the current week (Mon-Sun)
+            $todaysdate= date('Y-m-d');
+            $weeks= getWeekDates($todaysdate);
+            print_r($weeks);
 
+
+            include '../View/pageHeader.php';
+            include '../View/schedule.php';
+            break;
     
         case 'filter_recipes':
                 //unfinished
@@ -127,11 +134,6 @@
                 break;
         default:
             echo 'No case chosen';
-        case 'filter_recipes':
-            //unfinished
-
-            include '../View/recipePage.php';
-            break;
     }
 
     ?>
