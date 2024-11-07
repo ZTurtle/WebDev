@@ -1,17 +1,12 @@
 .headerColumn{
     float: left;
-    width: 33%;
+    width: 25%;
 }
 .headerRow:after{
     content: "";
     display:table;
     clear:both;
 
-}
-.headerColumn:hover{
-    float: left;
-    width: 33%;
-    background-color: color-mix(in srgb, black 10%, red 90%);
 }
 .headerA:link{
     font-size:large;

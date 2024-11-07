@@ -143,8 +143,17 @@
     
                 include '../View/recipeView.php';
                 break;
+
+
+        case 'recipe_view':
+            $recipes = all_recipes();
+            include '../View/recipeView.php';
+            break;
+
         default:
             echo 'No case chosen';
+        
+
     }
 
     ?>

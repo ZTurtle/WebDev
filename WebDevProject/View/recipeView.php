@@ -79,7 +79,6 @@ $recipes = [
     </div>
     <div class = "moveRight">
     <main>
-        <h1>List of Recipes</h1>
         <div class="row">
             <?php foreach ($recipes as $recipe) :?>
                 <div class="column">
@@ -89,13 +88,18 @@ $recipes = [
                 <tr>
                 <td>
                     <?php 
+                        if ( strlen($recipe['RecipeName'])> 20){
+                                $name = substr($recipe['RecipeName'], 0,16) . "...";
+                        }
+                        else{
+                            $name = $recipe['RecipeName'];
+                        }
                         echo 
-                        '<br>'. '<h3>'. $recipe['RECIPE_NAME'] . '</h3>'.
-                        '<br>'. '<img src = "' . $recipe['RECIPE_IMAGE'].  ' "width = "150" height="150" alt = "Recipe Image">' . '<br>' .
-                        '<br>'.'<span class="cardLabels"> Type:</span>'. '<span class= "labelContent">'. $recipe['RECIPE_TYPE'] .'</span>'. '<br>' .
-                        '<br>'.'<span class="cardLabels"> Cook Time:</span>'. '<span class= "labelContent">' . $recipe['RECIPE_COOK_TIME'] . '<br>' .
-                        '<br>'.'<span class="cardLabels"> Calories:</span>'. '<span class= "labelContent">' . $recipe['RECIPE_CALORIES'] . '<br>' .
-                        '<br>' .'<span class="cardLabels"> Servings:</span>'. '<span class= "labelContent">'. $recipe['RECIPE_SERVINGS'] . '<br>'.'<br>'.
+                        '<br>'. '<h3>'. $name . '</h3>'.
+                        '<br>'. '<img src = "' . $recipe['ImageURL'].  ' "width = "150" height="150" alt = "Recipe Image">' . '<br>' .
+                        '<br>'.'<span class="cardLabels"> Type:</span>'. '<span class= "labelContent">'. $recipe['MealType'] .'</span>'. '<br>' .
+                        '<br>'.'<span class="cardLabels"> Cook Time:</span>'. '<span class= "labelContent">' . $recipe['CookTime'] . '<br>' .
+                        '<br>'.'<span class="cardLabels"> Calories:</span>'. '<span class= "labelContent">' . $recipe['Cal'] . '<br>' .'<br>' .
                         '<button class= "button recipeButton"> Recipe</button>'.'<br>'.'<br>' ;
                     ?>
                 </td>
