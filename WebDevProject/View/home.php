@@ -13,7 +13,7 @@
     <h2>Welcome, <?php echo $fname;?> </h2>
     <div class="box">
         <h2> Today's Meals</h2>
-        <?php if ($mealplanid == false){?>
+        <?php if ($recipes == false){?>
             <p> No meal planned for today</p>
         <?php } else{ ?>
         <table>
@@ -28,13 +28,13 @@
                     <td><?php echo $recipe['RecipeName'];?> </td>
                     <td> <?php echo $recipe['MealType'];?></td>
                     <td> <?php echo $recipe['Cal'];?></td>
-                    <td><a href="http://example.com/recipe" target="_blank"> <!--Come back to fix coloing -->
+                    <td><a href="<?php echo $recipe['URL']?>" target="_blank"> <!--Come back to fix coloing -->
                         <i class="fas fa-link"></i> </a> </td>
 
             </tr>
             <?php endforeach;?>
         </table> 
-        <p> Total Cal: <?php echo $totalcal ?></p>
+        <p> Total Cal = <?php echo get_mealplan_calories($recipes);?></p>
         <?php }?>
     </div>
 

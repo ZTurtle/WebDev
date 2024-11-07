@@ -88,10 +88,13 @@
             $fname= $_SESSION['fname'];
             $userID= $_SESSION['userID'];
 
-            // get list of recipes in meal plan scheudle 
-            $todaysdate= date('Y-m-d');
-            $mealplanid= get_todays_mealplanid($userID,$todaysdate);
+            // get today's list of recipes in meal plan scheudle 
+            $todaysdate= new DateTime();
+            $recipes= get_mealplan_by_date($todaysdate,$userID);
             
+            $mealplanid= get_mealplanid($userID,$todaysdate);
+            
+            /* IGNORE
             if ($mealplanid != false){ 
                 $recipes= get_recipes_by_mealplanid($mealplanid);
                 //get total calories
@@ -100,13 +103,14 @@
                     $totalcal= $totalcal+ $recipe['Cal'];
                 }
 
-            }
+            } */
+            
             
             
             include '../View/pageHeader.php';
             include '../View/home.php';
             
-            /* view the the recipes in $recipes for debugging
+            /* view the recipes in $recipes for debugging
             echo '\n';
             echo "<pre>";
             print_r($recipes);
@@ -114,11 +118,13 @@
 
             
             break;
-        case 'weekly_schedule': //schedule for week one. 
-            //Task1: Get the dates for the current week (Mon-Sun)
+        case 'weekly_schedule':
+            //Get the dates of days of the week
             $date= filter_input(INPUT_POST, 'week_date');
-            $weeks= getWeekDates($date);
-            print_r($weeks);
+            $week= getWeekDates($date);
+            print_r($week);
+            //for each date present the the recipes 
+
 
 
             include '../View/pageHeader.php';
