@@ -13,17 +13,20 @@
     </div>
 
     <div class = "headerColumn">
-    <form action = "../Controller/index.php" method = "post" value = "recipe_view">
+    <form action = "." method = "post" value = "recipe_view">
     <input type = "hidden" name= "action" value = "recipe_view">
     <button type = "submit" class= "button headerButton">My Recipes</button>
     </form>
     </div>
 
     <div class = "headerColumn">
-    <form action = "." method = "post" value = "recipe_view">
-    <input type = "hidden" name= "action" value = "recipe_view">
-    <button class= "button headerButton" > Weekly Schedule</button>
-    </form>    
+
+        <form action = "." method = "post">
+            <input type = "hidden" name= "action" value = "weekly_schedule">
+            <input type = "hidden" name= week_date value= <?php date('Y-m-d')?>>
+            <button type = "submit" class= "button headerButton">Weekly Schedule</button>
+            
+        </form>
     </div>
 
     <div class = "headerColumn">

@@ -35,10 +35,13 @@
 - I still need to make buttons to view the links
 - Will now be working on the schedule page.
 
-  How the home page looks currently:
-  
-  <img width="500" alt="image" src="https://github.com/user-attachments/assets/e31df356-5ab1-4f15-bd55-d6689ff6e2e3">
-
+## Ama (11/07/2024) 
+- Currently working on schedule page in a seperate branch:
+  - Schedule page is half-way done.
+  - All recipe information is presented for each day of the week
+  - To Do:
+      - Implement the form to remove a meal plan from the schedule
+      - Implement way to view the next week meal plan schedule.
 
 
 

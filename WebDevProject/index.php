@@ -8,7 +8,6 @@
      Version: 2024/09/08 -->
 <html>
 <head>
-    
     <meta charset="UTF-8">
     <link rel="stylesheet" href="main.css">
 </head>
