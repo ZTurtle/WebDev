@@ -23,7 +23,7 @@
 
         <form action = "." method = "post">
             <input type = "hidden" name= "action" value = "weekly_schedule">
-            <input type = "hidden" name= week_date value= <?php date('Y-m-d')?>>
+            <input type = "hidden" name= "week_date" value= "<?php date('Y-m-d')?>">
             <button type = "submit" class= "button headerButton">Weekly Schedule</button>
             
         </form>

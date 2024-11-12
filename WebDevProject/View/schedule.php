@@ -7,7 +7,8 @@
 
 <body>
     <h1>Weekly Meals</h1>
-    <?php foreach ($week as $day):?>
+    
+    <?php foreach ($week as $day): //for each day of the week ?>
         <div class="box">
             <h2> <?php echo $day->format('l'); echo ' ('.$day->format('m-d-Y').')'?> </h2>
 

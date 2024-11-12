@@ -39,8 +39,10 @@ function get_recipes_by_mealplanid($mealplanid): array{
 
 function getWeekDates($startDate) {
     //Returns: Array of dates Mon-Sun for a week given the start date. The dates are all DateTime Objects.
+    //Parameters:  $startDate= string 
+
     // Convert $startDate to a DateTime object
-    $date = new DateTime($startDate);
+     $date = new DateTime($startDate);
     
     // Find the day of the week for $startDate (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
     $dayOfWeek = $date->format('w');
