@@ -12,10 +12,10 @@ INSERT INTO Users (UserID, Username, FName, LName, Password) VALUES
 */
 
 /* Insert meal types */
-INSERT INTO Meal_Type (MealType) VALUES 
+/*INSERT INTO Meal_Type (MealType) VALUES 
 ('Breakfast'), 
 ('Lunch'), 
-('Dinner');
+('Dinner');*/
 
 /* Insert recipes for UserID = 1 */
 INSERT INTO Recipes (UserID, RecipeName, MealType, CookTime, Cal, URL, ImageURL) VALUES 
