@@ -30,4 +30,17 @@ function all_recipes(){
     $statement->closeCursor();
     return $recipes;
 }
+function get_recipe($RecipeID){
+    global $db;
+    $query = 'SELECT * 
+    FROM Recipes
+    WHERE RecipeID = :RecipeID';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':RecipeID',$RecipeID );
+    $statement->execute();
+    $recipe = $statement->fetchAll();
+    $statement->closeCursor();
+    $recipe = $recipe[0];
+    return $recipe;
+}
 ?>

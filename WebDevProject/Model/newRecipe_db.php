@@ -29,4 +29,31 @@ function delete_recipe($RecipeID){
     $statement->closeCursor();
     return;
 }
+function edit_recipe($UserID,$CookTime, $Cal, $mealType, $URL, $Name, $filePath, $RecipeID){
+    global $db;
+    $query = 'UPDATE recipes
+    SET
+    UserID = :UserID,
+    RecipeName = :RecipeName,
+    MealType = :MealType,
+    CookTime = :CookTime,
+    Cal = :Cal,
+    URL = :URL,
+    ImageURL = :ImageURL
+    WHERE RecipeID = :RecipeID';
+
+    $statement = $db->prepare($query);
+    $statement->bindValue(':UserID',$UserID );
+    $statement->bindValue(':RecipeName', $Name);
+    $statement->bindValue(':MealType', $mealType);
+    $statement->bindValue(':CookTime', $CookTime);
+    $statement->bindValue(':Cal', $Cal);
+    $statement->bindValue(':URL', $URL);
+    $statement->bindValue(':ImageURL', $filePath);
+    $statement->bindValue(':RecipeID',$RecipeID );
+    $statement->execute();
+    $statement->closeCursor();
+    return;
+
+}
 ?>

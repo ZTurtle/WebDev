@@ -101,7 +101,8 @@ $recipes = [
                             $name = $recipe['RecipeName'];
                         }
                         echo 
-                        '<br>'. '<h3>'. $name . '</h3>'.
+                        '<br>'. '<h3>'. $name . '</h3>'. 
+                        //'<input type="checkbox" class ="check" name="selected[]" value="'. $recipe['RecipeID']. '">'.
                         '<form action = "../Controller/index.php" method = "post">'.
                         '<br>'. '<img src = "' . $recipe['ImageURL'].  ' "width = "150" height="150" alt = "Recipe Image">' . '<br>' .
                         '<input type="hidden" name="RecipeID" value="'. $recipe['RecipeID']. '">'.
@@ -109,7 +110,8 @@ $recipes = [
                         '<br>'.'<span class="cardLabels"> Cook Time:</span>'. '<span class= "labelContent">' . $recipe['CookTime'] . '<br>' .
                         '<br>'.'<span class="cardLabels"> Calories:</span>'. '<span class= "labelContent">' . $recipe['Cal'] . '<br>' .'<br>' .
                         '<a class= "button recipeButton" href="'. $recipe['URL']. '">&#x1F517</a>'.
-                        '<button type = "submit" name = "action" value = "delete_recipe" class= "button deleteButton"> Delete</button>'.
+                        '<button type = "submit" name = "action" value = "delete_recipe" class= "button deleteButton"> Delete</button>'. '<br>'. '<br>'.
+                        '<button type = "submit" name = "action" value = "edit_recipe" class= "button editButton"> &#9998</button>' .
                         '<br>' .'<br>'. '</form>' ;
                     ?>
                 </td>

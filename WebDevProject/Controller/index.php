@@ -185,7 +185,38 @@
             delete_recipe($RecipeID);
             header('Location: .?action=recipe_view');
             break;
+        case 'edit_recipe':
+            $RecipeID = filter_input(INPUT_POST, 'RecipeID');
+            $recipe = get_recipe($RecipeID);
+            include '../View/edit_recipe.php';
+            break;
 
+        case 'submit_edit_recipe':
+            $RecipeID = filter_input(INPUT_POST, 'RecipeID');
+            $CookTime = filter_input(INPUT_POST, 'CookTime');
+            $Cal = filter_input(INPUT_POST, 'Cal');
+            $mealType = filter_input(INPUT_POST, 'mealType');
+            $URL = filter_input(INPUT_POST, 'URL');
+            $Name = filter_input(INPUT_POST, 'RecipeName');
+            
+            $imageFolder = "../Model/images/";
+            $filePath = $imageFolder . basename($_FILES["file1"]["name"]);
+            if(is_uploaded_file($_FILES["file1"]["tmp_name"])){
+                echo "file uploaded";
+                if(move_uploaded_file($_FILES["file1"]["tmp_name"], $filePath)){
+                    echo "file moved";
+                }
+                else{
+                    echo "error moving file";
+                }
+            }
+            else {
+                echo "error no file uploaded";
+            }
+            //echo "$CookTime, $Cal, $mealType, $URL, $Name, $filePath";
+            edit_recipe($_SESSION['userID'],$CookTime, $Cal, $mealType, $URL, $Name, $filePath, $RecipeID);
+            header('Location: .?action=recipe_view');
+            break;
         default:
             echo 'No case chosen';
         
