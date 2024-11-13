@@ -119,11 +119,8 @@
             break;
         case 'weekly_schedule':
             //Get the days of the week (DateTime Objecy) in a single array.
-            $dateString= filter_input(INPUT_POST, 'week_date'); //input from pageHeader.php
-            echo $dateString;
+            $dateString = filter_input(INPUT_POST, 'week_date', FILTER_SANITIZE_STRING);
             $week= getWeekDates($dateString); 
-            
-
 
             include '../View/pageHeader.php';
             include '../View/schedule.php';

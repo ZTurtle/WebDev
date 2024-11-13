@@ -7,7 +7,20 @@
 
 <body>
     <h1>Weekly Meals</h1>
-    
+    <!-- buttons to view next week and this week-->
+    <form action= "."method="post">
+        <input type= "hidden" name= "action" value= "weekly_schedule">
+        <input type = "hidden" name= week_date value= "<?php echo date('Y-m-d', strtotime('+7 days'))?>">
+        <button type = "submit" > Next Week</button>
+    </form>
+
+    <form action= "." method="post">
+        <input type= "hidden" name= "action" value= "weekly_schedule">
+        <input type = "hidden" name= week_date value= "<?php echo date('Y-m-d')?>">
+        <button type = "submit" > This Week</button>
+    </form>
+
+    <!-- Schedule Presentation-->
     <?php foreach ($week as $day): //for each day of the week ?>
         <div class="box">
             <h2> <?php echo $day->format('l'); echo ' ('.$day->format('m-d-Y').')'?> </h2>
