@@ -91,3 +91,12 @@ function get_mealplan_calories($recipes){
 
     return $totalcal;
 }
+
+function clear_schedule($scheduleDate){
+    global $db;
+    $query= 'Delete From Schedule where MealDate = :scheduleDate';
+    $statement= $db->prepare($query);
+    $statement->bindValue(':scheduleDate',$scheduleDate);
+    $statement->execute();
+    
+}

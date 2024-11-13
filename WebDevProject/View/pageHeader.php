@@ -23,15 +23,15 @@
         
         <form action = "." method = "post">
             <input type = "hidden" name= "action" value = "weekly_schedule">
-            <input type = "hidden" name= "week_date" value= "<?php echo date('Y-m-d')?>">
+            <!-- <input type = "hidden" name= "week_date" value= "<?php echo date('Y-m-d')?>"> -->
             <button type = "submit" class= "button headerButton">Weekly Schedule</button>
             
         </form>
     </div>
 
     <div class = "headerColumn">
-    <form action = "." method = "post" value = "recipe_view">
-    <input type = "hidden" name= "action" value = "recipe_view">
+    <form action = "." method = "post" value = "saved_plans">
+    <input type = "hidden" name= "action" value = "saved_plans">
     <button class= "button headerButton"> Saved Meal Plans</button>
     </form>
     </div>

@@ -48,10 +48,16 @@
                     <?php endforeach;?>
             </table> <br>
             <p> Total Cal = <?php echo get_mealplan_calories($recipes);?></p>
-            <?php }?>
+            <!-- Form to clear schedule -->
 
-                
+            <form action= "."method="post">
+                        <input type= "hidden" name= "action" value= "clear_schedule">
+                        <input type="hidden" name="schedule_date" value= "<?php echo $day->format('Y-m-d') ?>">
+                        <button type = "submit" onclick="return confirm('Are you sure you want to clear the schedule for <?php echo $day->format('l'); echo ' ('.$day->format('m-d-Y').')'?>?')"> Clear Schedule</button>
+            </form>
             
+            <?php }?>
+ 
         </div>
     <?php endforeach;?>
     <br><br><br>

@@ -121,10 +121,24 @@
         case 'weekly_schedule':
             //Get the days of the week (DateTime Objecy) in a single array.
             $dateString = filter_input(INPUT_POST, 'week_date', FILTER_SANITIZE_STRING);
+            if (!$dateString){
+                $dateString = filter_input(INPUT_GET, 'week_date', FILTER_SANITIZE_STRING); 
+            }
+
             $week= getWeekDates($dateString); 
+            echo $dateString;
+
+            
 
             include '../View/pageHeader.php';
             include '../View/schedule.php';
+            break;
+
+        case 'clear_schedule':
+            $scheduleDateString = filter_input(INPUT_POST,'schedule_date',FILTER_SANITIZE_STRING);
+            clear_schedule($scheduleDateString);
+            
+            header("Location: ?action=weekly_schedule&week_date=$scheduleDateString");
             break;
     
         case 'filter_recipes':
