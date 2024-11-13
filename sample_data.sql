@@ -1,7 +1,7 @@
 /* Sample data for UserID = 1
    NOTE: 
-   - Recipes(Image URL) and Recipes(URL) are random and don't take you anywhere.
-   - Make sure you update the date to within the upcoming two weeks. 
+   Recipes(Image URL) and Recipes(URL) are random and don't take you anywhere.
+   Make sure you update the date to within the upcoming two weeks. 
    This is just for testing the "home" page and "my saved meal plans" page but can be modified to test other pages later on
 */
 
@@ -11,33 +11,39 @@ INSERT INTO Users (UserID, Username, FName, LName, Password) VALUES
 (1, 'testuser', 'Test', 'User', 'password123');
 */
 
-/* Insert meal types */
+
+/* Insert meal types if don't have these categories already */
 /*INSERT INTO Meal_Type (MealType) VALUES 
 ('Breakfast'), 
 ('Lunch'), 
 ('Dinner');*/
 
-/* Insert recipes for UserID = 1 */
+/* Insert new recipes for UserID = 1 */
 INSERT INTO Recipes (UserID, RecipeName, MealType, CookTime, Cal, URL, ImageURL) VALUES 
-(1, 'Oatmeal with Fruits', 'Breakfast', 10, 250, 'https://example.com/oatmeal', 'https://example.com/oatmeal.jpg'),
-(1, 'Grilled Chicken Salad', 'Lunch', 20, 350, 'https://example.com/chickensalad', 'https://example.com/chickensalad.jpg'),
-(1, 'Steak and Veggies', 'Dinner', 40, 600, 'https://example.com/steak', 'https://example.com/steak.jpg'),
-(1, 'Smoothie Bowl', 'Breakfast', 15, 300, 'https://example.com/smoothiebowl', 'https://example.com/smoothiebowl.jpg'),
-(1, 'Turkey Sandwich', 'Lunch', 15, 400, 'https://example.com/turkeysandwich', 'https://example.com/turkeysandwich.jpg'),
-(1, 'Pasta Bolognese', 'Dinner', 30, 500, 'https://example.com/pastabolognese', 'https://example.com/pastabolognese.jpg');
+(1, 'Avocado Toast', 'Breakfast', 10, 200, 'https://example.com/avocadotoast', 'https://example.com/avocadotoast.jpg'),
+(1, 'Chicken Caesar Wrap', 'Lunch', 15, 450, 'https://example.com/caesarwrap', 'https://example.com/caesarwrap.jpg'),
+(1, 'Grilled Salmon', 'Dinner', 25, 550, 'https://example.com/grilledsalmon', 'https://example.com/grilledsalmon.jpg'),
+(1, 'Greek Yogurt Parfait', 'Breakfast', 10, 250, 'https://example.com/yogurtparfait', 'https://example.com/yogurtparfait.jpg'),
+(1, 'Veggie Burrito', 'Lunch', 20, 500, 'https://example.com/veggieburrito', 'https://example.com/veggieburrito.jpg'),
+(1, 'Beef Stir-Fry', 'Dinner', 30, 650, 'https://example.com/beefstirfry', 'https://example.com/beefstirfry.jpg');
 
-/* Insert meal plans for UserID = 1 */
+/* Insert new meal plans for UserID = 1 */
 INSERT INTO Meal_Plans (UserID) VALUES 
-(1), (1), (1); -- Insert 3 meal plans for testing
+(1), (1), (1), (1);  -- Four new meal plans for additional testing
 
-/* Insert recipes into meal plans (Meal_Plan_Recipes) for MealPlanID = 1, 2, and 3 */
+/* Insert recipes into meal plans (Meal_Plan_Recipes) for MealPlanID = 4, 5, 6, and 7 */
 INSERT INTO Meal_Plan_Recipes (MealPlanID, RecipeID) VALUES 
-(1, 1), (1, 2), (1, 3),  -- Meal Plan 1 includes three recipes
-(2, 4), (2, 5), (2, 6),  -- Meal Plan 2 includes three different recipes
-(3, 1), (3, 4), (3, 6);  -- Meal Plan 3 includes a mix of recipes
+(4, 7), (4, 8), (4, 9),  -- Meal Plan 4 includes three recipes
+(5, 10), (5, 11), (5, 12),  -- Meal Plan 5 includes three different recipes
+(6, 7), (6, 10), (6, 9),  -- Meal Plan 6 includes a mix of recipes
+(7, 8), (7, 11), (7, 12);  -- Meal Plan 7 includes another mix of recipes
 
-/* Insert schedule data to assign meal plans to specific dates for UserID = 1 */
+/* Insert new schedule data to assign meal plans to specific dates for this week */
 INSERT INTO Schedule (UserID, MealPlanID, MealDate) VALUES 
-(1, 1, '2024-11-01'), 
-(1, 2, '2024-11-02'), 
-(1, 3, '2024-11-03');
+(1, 4, '2024-11-11'),  -- Monday
+(1, 5, '2024-11-12'),  -- Tuesday
+(1, 6, '2024-11-13'),  -- Wednesday
+(1, 7, '2024-11-14'),  -- Thursday
+(1, 4, '2024-11-15'),  -- Friday
+(1, 5, '2024-11-16'),  -- Saturday
+(1, 6, '2024-11-17');  -- Sunday
