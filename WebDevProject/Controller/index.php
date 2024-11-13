@@ -103,7 +103,6 @@
                 foreach ($recipes as $recipe){
                     $totalcal= $totalcal+ $recipe['Cal'];
                 }
-
             } */
             
             
@@ -120,13 +119,9 @@
             
             break;
         case 'weekly_schedule':
-            //Get the dates of days of the week
-            $date= filter_input(INPUT_POST, 'week_date');
-            $week= getWeekDates($date);
-            print_r($week);
-            //for each date present the the recipes 
-
-
+            //Get the days of the week (DateTime Objecy) in a single array.
+            $dateString = filter_input(INPUT_POST, 'week_date', FILTER_SANITIZE_STRING);
+            $week= getWeekDates($dateString); 
 
             include '../View/pageHeader.php';
             include '../View/schedule.php';
