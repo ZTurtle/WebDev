@@ -56,28 +56,50 @@ h3 {
   padding-left: 0;
   margin: 0;
 }
-tr:hover{
-  background-color: grey;
-}
 tr{
   border-radius: 5%;
 }
 .recipeButton{
-  background-color: lightblue;
-  width:50%;
+  background-color: lightgreen;
+  width:45%;
   padding-top: 2%;
   padding-bottom: 2%;
   text-align: center;
-  font-size:x-large;
+  font-size:15px;
   box-shadow: 5px 5px 5px #999;
   border:none;
+  border-radius: 10%;
+  margin-right:10%;
 }
 .recipeButton:hover{
-  background-color: color-mix(in srgb, black 10%, lightblue 90%);
+  background-color: color-mix(in srgb, black 10%, lightgreen 90%);
   border-width: 0;
   border:none;
 
 }
+
+a{
+  text-decoration: none;
+  display: inline-block;
+}
+
+.deleteButton{
+  background-color: lightcoral;
+  width:45%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  text-align: center;
+  font-size:large;
+  box-shadow: 5px 5px 5px #999;
+  border:none;
+  border-radius: 10%;
+}
+.deleteButton:hover{
+  background-color: color-mix(in srgb, black 10%, lightcoral 90%);
+  border-width: 0;
+  border:none;
+}
+
 .moveRight{
   margin-left: 20%;
   box-shadow: -5px -5px -5px #999;
@@ -92,7 +114,7 @@ tr{
   position: absolute;
   }
 .sideBarButton{
-  width:50%;
+  width:75%;
   padding-top: 2%;
   padding-bottom: 2%;
   text-align: center;

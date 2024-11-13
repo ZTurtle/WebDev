@@ -73,6 +73,12 @@ $recipes = [
         <li>
         <input type="submit" value="Filter" class= "button sideBarButton">
         </li>
+        <li>
+            <form action="../Controller/index.php" method="post" id="add_recipe">
+            <input type="hidden" name="action" value="add_recipe">
+            <input type= "submit" value = "Add Recipe" class = "button sideBarButton" >    
+        </form>
+        </li>
         </ul>
 
     </form>
@@ -96,11 +102,15 @@ $recipes = [
                         }
                         echo 
                         '<br>'. '<h3>'. $name . '</h3>'.
+                        '<form action = "../Controller/index.php" method = "post">'.
                         '<br>'. '<img src = "' . $recipe['ImageURL'].  ' "width = "150" height="150" alt = "Recipe Image">' . '<br>' .
+                        '<input type="hidden" name="RecipeID" value="'. $recipe['RecipeID']. '">'.
                         '<br>'.'<span class="cardLabels"> Type:</span>'. '<span class= "labelContent">'. $recipe['MealType'] .'</span>'. '<br>' .
                         '<br>'.'<span class="cardLabels"> Cook Time:</span>'. '<span class= "labelContent">' . $recipe['CookTime'] . '<br>' .
                         '<br>'.'<span class="cardLabels"> Calories:</span>'. '<span class= "labelContent">' . $recipe['Cal'] . '<br>' .'<br>' .
-                        '<button class= "button recipeButton"> Recipe</button>'.'<br>'.'<br>' ;
+                        '<a class= "button recipeButton" href="'. $recipe['URL']. '">&#x1F517</a>'.
+                        '<button type = "submit" name = "action" value = "delete_recipe" class= "button deleteButton"> Delete</button>'.
+                        '<br>' .'<br>'. '</form>' ;
                     ?>
                 </td>
             </tr>

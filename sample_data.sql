@@ -11,6 +11,7 @@ INSERT INTO Users (UserID, Username, FName, LName, Password) VALUES
 (1, 'testuser', 'Test', 'User', 'password123');
 */
 
+
 /* Insert meal types if don't have these categories already */
 /*INSERT INTO Meal_Type (MealType) VALUES 
 ('Breakfast'), 

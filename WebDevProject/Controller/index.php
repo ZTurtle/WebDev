@@ -4,6 +4,7 @@
     include '../errors.php';
     include '../Model/schedule_db.php';
     include '../Model/filters.php';
+    include '../Model/newRecipe_db.php';
 
     session_start();
     
@@ -143,6 +144,41 @@
         case 'recipe_view':
             $recipes = all_recipes();
             include '../View/recipeView.php';
+            break;
+
+        case 'add_recipe':
+            include '../View/add_recipe.php';
+            break;
+        case 'submit_recipe':
+            $CookTime = filter_input(INPUT_POST, 'CookTime');
+            $Cal = filter_input(INPUT_POST, 'Cal');
+            $mealType = filter_input(INPUT_POST, 'mealType');
+            $URL = filter_input(INPUT_POST, 'URL');
+            $Name = filter_input(INPUT_POST, 'RecipeName');
+            
+            $imageFolder = "../Model/images/";
+            $filePath = $imageFolder . basename($_FILES["file1"]["name"]);
+            if(is_uploaded_file($_FILES["file1"]["tmp_name"])){
+                echo "file uploaded";
+                if(move_uploaded_file($_FILES["file1"]["tmp_name"], $filePath)){
+                    echo "file moved";
+                }
+                else{
+                    echo "error moving file";
+                }
+            }
+            else {
+                echo "error no file uploaded";
+            }
+            //echo "$CookTime, $Cal, $mealType, $URL, $Name, $filePath";
+            new_recipe($_SESSION['userID'],$CookTime, $Cal, $mealType, $URL, $Name, $filePath);
+            header('Location: .?action=recipe_view');
+
+            break;
+        case 'delete_recipe':
+            $RecipeID = filter_input(INPUT_POST, 'RecipeID');
+            delete_recipe($RecipeID);
+            header('Location: .?action=recipe_view');
             break;
 
         default:
