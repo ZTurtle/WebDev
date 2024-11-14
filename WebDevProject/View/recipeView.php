@@ -53,6 +53,7 @@ $recipes = [
         <ul>
         <li> <h3> Meal Type: </h3>
         <select name="mealType" id="mealType">
+            <option value="All">All</option>
             <option value="Breakfast">Breakfast</option>
             <option value="Lunch">Lunch</option>
             <option value="Dinner">Dinner</option>
@@ -73,6 +74,7 @@ $recipes = [
         <li>
         <input type="submit" value="Filter" class= "button sideBarButton">
         </li>
+        </form>
         <li>
             <form action="../Controller/index.php" method="post" id="add_recipe">
             <input type="hidden" name="action" value="add_recipe">
@@ -80,8 +82,6 @@ $recipes = [
         </form>
         </li>
         </ul>
-
-    </form>
     </div>
     <div class = "moveRight">
     <main>

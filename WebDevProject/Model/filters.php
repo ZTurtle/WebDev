@@ -1,16 +1,39 @@
 <?php
 function filter_recipes($minCal, $maxCal, $minCook, $maxCook, $mealType){
     global $db;
-    $query = 'SELECT *
-    FROM Recipes
-    WHERE Cal BETWEEN :minCal AND :maxCal 
-    AND MealType = :mealType 
-    AND CookTime BETWEEN :minCook AND :maxCook ';
-
-    $statement = $db->prepare($query);
+    // if no string entered make infinity (or close)
+    if ($minCal == ""){
+        $minCal = 0;
+    }
+    if ($minCook == ""){
+        $minCook = 0;
+    }
+    if ($maxCal == ""){
+        $maxCal = 99999;
+    }
+    if ($maxCook == ""){
+        $maxCook = 99999;
+    }
+    if ($mealType == "All"){
+        $query = 'SELECT *
+        FROM Recipes
+        WHERE Cal BETWEEN :minCal AND :maxCal 
+        AND CookTime BETWEEN :minCook AND :maxCook ';
+        $statement = $db->prepare($query);
+    }
+    else{
+        $query = 'SELECT *
+        FROM Recipes
+        WHERE Cal BETWEEN :minCal AND :maxCal 
+        AND MealType = :mealType 
+        AND CookTime BETWEEN :minCook AND :maxCook ';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':mealType', $mealType);
+    }
+    
     $statement->bindValue(':minCal', $minCal);
     $statement->bindValue(':maxCal', $maxCal);
-    $statement->bindValue(':mealType', $mealType);
+    
     $statement->bindValue(':minCook', $minCook);
     $statement->bindValue(':maxCook', $maxCook);
     $statement->execute();
