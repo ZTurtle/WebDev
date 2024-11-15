@@ -4,7 +4,7 @@
     include '../errors.php';
     include '../Model/schedule_db.php';
     include '../Model/filters.php';
-    include '../Model/newRecipe_db.php';
+    include '../Model/recipe_db.php';
     include '../Model/mealPlan_db.php';
 
     session_start();
@@ -217,8 +217,7 @@
             edit_recipe($_SESSION['userID'],$CookTime, $Cal, $mealType, $URL, $Name, $filePath, $RecipeID);
             header('Location: .?action=recipe_view');
             break;
-        default:
-            echo 'No case chosen';
+        
 
         case 'saved_plans':
             $userID= $_SESSION['userID'];
@@ -240,12 +239,38 @@
             break;
 
         case 'edit_plan':
-            
+            $mealplanid= filter_input(INPUT_POST,'mealplanid',FILTER_VALIDATE_INT);
+            $recipes= get_recipes_by_mealplanid($mealplanid);
+            $allRecipes= get_all_recipes($_SESSION['userID']);
+
+            include('../View/editPlan_form.php');
 
             break;
+        case 'save_plan_edits':
+            $mealplanid= filter_input(INPUT_POST,'mealplanid',FILTER_VALIDATE_INT);
+            $recipesToRemove= filter_input(INPUT_POST, 'remove_recipes', FILTER_DEFAULT, FILTER_FORCE_ARRAY);
+            $recipesToAdd= filter_input(INPUT_POST, 'add_recipes', FILTER_DEFAULT, FILTER_FORCE_ARRAY);
+
+            // print_r($recipesToAdd);
+            // print_r($recipesToRemove);
+            echo 'if stmt next <br>';
+            if (!empty($recipesToRemove)){
+                echo 'removing';
+                remove_recipes_from_meal_plan($recipesToRemove,$mealplanid);
+            }
+            if(!empty($recipesToAdd)){
+                add_recipes_to_meal_plan($recipesToAdd,$mealplanid);
+            }
+
+            header('Location: .?action=saved_plans');
+            break;
+
         case 'add_plan_to_schedule':
 
             break; 
+        
+        default:
+        echo 'No case chosen';
 
         
 

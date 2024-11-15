@@ -56,4 +56,61 @@ function edit_recipe($UserID,$CookTime, $Cal, $mealType, $URL, $Name, $filePath,
     return;
 
 }
+
+function get_all_recipes($userID){
+    //Returns: array of all recipes a user has 
+    // Parameters: $userID: User's ID number 
+    global $db;
+    $query= 'select * from Recipes where UserID= :userID ORDER BY FIELD(MealType, "Breakfast", "Lunch", "Dinner")';
+    $stmt= $db->prepare($query);
+    $stmt->bindValue(':userID',$userID);
+    $stmt->execute();
+
+    $allRecipes= $stmt->fetchAll();
+    $stmt->closeCursor();
+
+    return ($allRecipes);
+
+}
+
+function remove_recipes_from_meal_plan($selectedRecipes, $mealplanid) {
+    // Removes selected recipes from a meal plan
+    global $db;
+    foreach ($selectedRecipes as $RecipeID) {
+        $query = 'DELETE FROM Meal_Plan_Recipes WHERE MealPlanID = :mealplanid AND RecipeID = :RecipeID';
+        
+        $stmt = $db->prepare($query);
+        $stmt->bindValue(':RecipeID', $RecipeID);
+        $stmt->bindValue(':mealplanid', $mealplanid);
+        $stmt->execute();
+        
+       /*For debuggiing
+         if ($stmt->execute()) {
+            echo 'Recipe successfully removed';
+        } else {
+            echo 'Removal unsuccessful';
+        } */
+    }
+}
+function add_recipes_to_meal_plan($selectedRecipes,$mealplanid){
+    //Adds recipes to a mealplan 
+    global $db;
+    foreach ($selectedRecipes as $RecipeID) {
+        $query = 'INSERT INTO Meal_Plan_Recipes(MealPlanID, RecipeID) VALUE (:mealplanid, :RecipeID)';
+        
+        $stmt = $db->prepare($query);
+        $stmt->bindValue(':RecipeID', $RecipeID);
+        $stmt->bindValue(':mealplanid', $mealplanid);
+        //$stmt->execute();
+
+        if ($stmt->execute()) {
+            echo 'Recipe successfully added';
+        } else {
+            echo 'failed to add recipes';
+        }
+    }
+
+}
+
+
 ?>

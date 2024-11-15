@@ -27,7 +27,11 @@ function get_recipes_by_mealplanid($mealplanid){
     //Returns: Array of recipes in a meal plan based on the mealplanID
     //Joins the Meal_Plan_Recipes table and the Recipes table only selecting the rows of the correct $mealplanid
     global $db;
-    $query= 'SELECT * from Meal_Plan_Recipes LEFT OUTER JOIN Recipes on Meal_Plan_Recipes.RecipeID = Recipes.RecipeID where MealPlanID= :mealplanid';
+    $query= 'SELECT * from Meal_Plan_Recipes 
+             LEFT OUTER JOIN Recipes 
+             on Meal_Plan_Recipes.RecipeID = Recipes.RecipeID 
+             where MealPlanID= :mealplanid 
+             ORDER BY FIELD(Recipes.MealType, "Breakfast", "Lunch", "Dinner")';
     $statement= $db->prepare($query);
     $statement->bindValue(':mealplanid',$mealplanid);
     $statement->execute();
