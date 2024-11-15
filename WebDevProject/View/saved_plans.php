@@ -36,10 +36,12 @@
         </form>
         <form action= "." method="post">
             <input type= "hidden" name= "action" value="use_plan">
+            <input type="hidden" name="mealplanid" value=" <?php echo $PlanID['MealPlanID']?>">
             <button type = "submit" > Use Meal Plan</button>
         </form>
         <form action= "." method="post">
             <input type= "hidden" name= "action" value="edit_plan">
+            <input type="hidden" name="mealplanid" value=" <?php echo $PlanID['MealPlanID']?>">
             <button type = "submit" > Edit </button>
         </form>
 
