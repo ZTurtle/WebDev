@@ -1,7 +1,7 @@
 
 <?php 
 function get_mealplanid($userid,$Date){
-    //Returns: The mealpan id from Schedule table for a certain date. Will return false if no meal plan scheduled for that day.
+    //Returns: The a singular mealpan id from Schedule table for a certain date. Will return false if no meal plan scheduled for that day.
     //Input: $userid: user's id, $Date: DateTime Object 
     global $db;
     $date= $Date->format('Y-m-d');
@@ -23,17 +23,19 @@ function get_mealplanid($userid,$Date){
 
 }
 
-function get_recipes_by_mealplanid($mealplanid): array{
+function get_recipes_by_mealplanid($mealplanid){
     //Returns: Array of recipes in a meal plan based on the mealplanID
     //Joins the Meal_Plan_Recipes table and the Recipes table only selecting the rows of the correct $mealplanid
     global $db;
-    $query= 'SELECT  * from Meal_Plan_Recipes LEFT OUTER JOIN Recipes on Meal_Plan_Recipes.RecipeID = Recipes.RecipeID where MealPlanID= :mealplanid';
+    $query= 'SELECT * from Meal_Plan_Recipes LEFT OUTER JOIN Recipes on Meal_Plan_Recipes.RecipeID = Recipes.RecipeID where MealPlanID= :mealplanid';
     $statement= $db->prepare($query);
     $statement->bindValue(':mealplanid',$mealplanid);
     $statement->execute();
     $recipes= $statement->fetchAll();
 
-    return $recipes;  
+    $statement->closeCursor();
+    return $recipes;
+    // return $recipes;  
 
 }
 

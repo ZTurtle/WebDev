@@ -5,6 +5,7 @@
     include '../Model/schedule_db.php';
     include '../Model/filters.php';
     include '../Model/newRecipe_db.php';
+    include '../Model/mealPlan_db.php';
 
     session_start();
     
@@ -94,16 +95,6 @@
             $recipes= get_mealplan_by_date($todaysdate,$userID);
             
             $mealplanid= get_mealplanid($userID,$todaysdate);
-            
-            /* IGNORE
-            if ($mealplanid != false){ 
-                $recipes= get_recipes_by_mealplanid($mealplanid);
-                //get total calories
-                $totalcal= 0;
-                foreach ($recipes as $recipe){
-                    $totalcal= $totalcal+ $recipe['Cal'];
-                }
-            } */
             
             
             
@@ -228,6 +219,33 @@
             break;
         default:
             echo 'No case chosen';
+
+        case 'saved_plans':
+            $userID= $_SESSION['userID'];
+            $MealPlanIDs= get_all_mealplanids($userID);
+
+            include '../View/pageHeader.php';
+            include("../View/saved_plans.php");
+            break;
+        case 'delete_plan':
+            //delete plan from MealPlan recipe using the meal plan ID (sent) and user ID
+            $mealplanid= filter_input(INPUT_POST,'mealplanid',FILTER_VALIDATE_INT);
+            $userID= $_SESSION['userID'];
+        
+            break;
+
+        case 'use_plan':
+            //add selected plan to schedule 
+
+            break;
+
+        case 'edit_plan':
+
+            break;
+        case 'add_plan_to_schedule':
+
+            break; 
+
         
 
     }
