@@ -55,9 +55,7 @@
                         <input type="hidden" name="schedule_date" value= "<?php echo $day->format('Y-m-d') ?>">
                         <button type = "submit" onclick="return confirm('Are you sure you want to clear the schedule for <?php echo $day->format('l'); echo ' ('.$day->format('m-d-Y').')'?>?')"> Clear Schedule</button>
             </form>
-            
             <?php }?>
- 
         </div>
     <?php endforeach;?>
     <br><br><br>

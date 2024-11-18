@@ -92,7 +92,7 @@ function remove_recipes_from_meal_plan($selectedRecipes, $mealplanid) {
         } */
     }
 }
-function add_recipes_to_meal_plan($selectedRecipes,$mealplanid){
+function add_recipes_to_meal_plan( $selectedRecipes, $mealplanid){
     //Adds recipes to a mealplan 
     global $db;
     foreach ($selectedRecipes as $RecipeID) {

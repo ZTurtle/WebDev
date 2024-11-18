@@ -226,11 +226,13 @@
             include '../View/pageHeader.php';
             include("../View/saved_plans.php");
             break;
+
         case 'delete_plan':
             //delete plan from MealPlan recipe using the meal plan ID (sent) and user ID
             $mealplanid= filter_input(INPUT_POST,'mealplanid',FILTER_VALIDATE_INT);
             $userID= $_SESSION['userID'];
-        
+            delete_meal_plan($mealplanid);
+            header('Location: .?action=saved_plans');
             break;
 
         case 'use_plan':
@@ -266,9 +268,21 @@
             break;
 
         case 'add_plan_to_schedule':
-
+            //adding after creation form
+            $userID= $_SESSION['userID'];
+            $SelectedRecipes= filter_input(INPUT_POST,'recipeIDs',FILTER_DEFAULT,FILTER_FORCE_ARRAY);
+            $mealplanid = get_next_meal_plan();
+            add_meal_plan($mealplanid, $SelectedRecipes, $userID);
+            echo '<pre>';
+            print_r($SelectedRecipes);
+            echo '</pre>';
+            header('Location: .?action=saved_plans');
             break; 
         
+        case 'newPlanForm':
+            $recipes = all_recipes();
+            include '../View/add_new_plan.php';
+            break;
         default:
         echo 'No case chosen';
 
