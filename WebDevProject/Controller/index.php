@@ -85,6 +85,8 @@
             }
 
             break;
+        case 'log_out':
+            
         case 'home': 
             $fname= $_SESSION['fname'];
             $userID= $_SESSION['userID'];
