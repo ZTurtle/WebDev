@@ -26,8 +26,9 @@
                         
                         '<input type="checkbox" name="recipeIDs[]" value= "' . $recipe['RecipeID'].'">
                         <label for="vehicle1"> Select Recipe</label><br>'.
-                        '<img src = "' . $recipe['ImageURL'].  ' "width = "150" height="150" alt = "Recipe Image">' .
                         '<p>'. $name . '</p>'. 
+                        '<img src = "' . $recipe['ImageURL'].  ' "width = "150" height="150" alt = "Recipe Image">' .
+                        
                         '<br>'.'<span class="cardLabels"> Type:</span>'. '<span class= "labelContent">'. $recipe['MealType'] .'</span>'. '<br>' .
                         '<br>'.'<span class="cardLabels"> Cook Time:</span>'. '<span class= "labelContent">' . $recipe['CookTime'] . '<br>' .
                         '<br>'.'<span class="cardLabels"> Calories:</span>'. '<span class= "labelContent">' . $recipe['Cal'] . '<br>' .'<br>'  ;
@@ -38,9 +39,19 @@
             </table>
 </div>
 <?php endforeach; ?>
-
+<div class = "column">
+    <table class= "sub">
+                <tr>
+                </tr>
+                <tr class = "sub">
+                <td class = "sub">
+                <input class = "TableSubmit" type= "submit" value="Submit">
+                </td>
+            </tr>
+            </table>
 </div>
-<input type= "submit" value="Submit">
+</div>
+
 </form>
 </body>
 </html>

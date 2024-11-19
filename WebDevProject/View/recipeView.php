@@ -115,7 +115,7 @@ $recipes = [
                         '<br>'.'<span class="cardLabels"> Cook Time:</span>'. '<span class= "labelContent">' . $recipe['CookTime'] . '<br>' .
                         '<br>'.'<span class="cardLabels"> Calories:</span>'. '<span class= "labelContent">' . $recipe['Cal'] . '<br>' .'<br>' .
                         '<a class= "button recipeButton" href="'. $recipe['URL']. '">&#x1F517</a>'.
-                        '<button type = "submit" name = "action" value = "delete_recipe" class= "button deleteButton"> Delete</button>'. '<br>'. '<br>'.
+                        '<button type = "submit" name = "action" value = "delete_recipe" class= "button deleteButton"> &#10006</button>'. '<br>'. '<br>'.
                         '<button type = "submit" name = "action" value = "edit_recipe" class= "button editButton"> &#9998</button>' .
                         '<br>' .'<br>'. '</form>' ;
                     ?>

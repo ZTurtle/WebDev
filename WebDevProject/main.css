@@ -35,7 +35,7 @@ h1 {
     display: flex;                     
     flex-direction: column;            
     justify-content: center;           
-    align-items: center;               
+    align-items: center;                
     width: 600px;                      
     height: 300px;                     
     background-color: rgb(196, 236, 242);
@@ -128,4 +128,31 @@ h3 {
 }
 tr{
   border-radius: 5%;
+}
+.TableSubmit{
+    width:100%;
+    text-align: center;
+    height: 100%;
+    font-size:xx-large;
+    border: 3px;
+    background-color: transparent;
+    color:white;
+    font-weight: bolder;
+    text-decoration: none;
+
+}
+
+.sub {
+    align-items: center;
+    background-color: lightgreen;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    height: 326px;
+    box-shadow: 5px 5px 5px #999;
+    border-radius: 5%;
+    margin-bottom: 10px;
+  }
+.sub:hover{
+    background-color: color-mix(in srgb, lightgreen 90%, black 10%);
 }

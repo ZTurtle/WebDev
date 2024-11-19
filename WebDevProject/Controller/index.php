@@ -15,7 +15,6 @@
     
     }
     //for debugging 
-    echo 'current action: '. $action;
 
     switch ($action){
         case 'register':
