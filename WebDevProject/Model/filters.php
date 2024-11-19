@@ -1,5 +1,5 @@
 <?php
-function filter_recipes($minCal, $maxCal, $minCook, $maxCook, $mealType){
+function filter_recipes($minCal, $maxCal, $minCook, $maxCook, $mealType, $search){
     global $db;
     // if no string entered make infinity (or close)
     if ($minCal == ""){
@@ -14,6 +14,7 @@ function filter_recipes($minCal, $maxCal, $minCook, $maxCook, $mealType){
     if ($maxCook == ""){
         $maxCook = 99999;
     }
+    if ($search == ""){
     if ($mealType == "All"){
         $query = 'SELECT *
         FROM Recipes
@@ -30,10 +31,29 @@ function filter_recipes($minCal, $maxCal, $minCook, $maxCook, $mealType){
         $statement = $db->prepare($query);
         $statement->bindValue(':mealType', $mealType);
     }
-    
+}
+else{
+    $search = "%$search%";
+    if ($mealType == "All"){
+        $query = 'SELECT *
+        FROM Recipes
+        WHERE RecipeName LIKE :search AND Cal BETWEEN :minCal AND :maxCal 
+        AND CookTime BETWEEN :minCook AND :maxCook';
+        $statement = $db->prepare($query);
+    }
+    else{
+        $query = 'SELECT *
+        FROM Recipes
+        WHERE RecipeName LIKE :search AND Cal BETWEEN :minCal AND :maxCal 
+        AND MealType = :mealType 
+        AND CookTime BETWEEN :minCook AND :maxCook ';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':mealType', $mealType);
+}
+$statement->bindValue(':search', $search);
+}
     $statement->bindValue(':minCal', $minCal);
     $statement->bindValue(':maxCal', $maxCal);
-    
     $statement->bindValue(':minCook', $minCook);
     $statement->bindValue(':maxCook', $maxCook);
     $statement->execute();

@@ -51,6 +51,11 @@ $recipes = [
     <form action="../Controller/index.php" method="post" id="filter_recipes">
         <input type="hidden" name="action" value="filter_recipes">
         <ul>
+        <li>
+        <div class= "search">
+        <input type="text" name = "search" placeholder="Search..">
+        </div>
+        </li>
         <li> <h3> Meal Type: </h3>
         <select name="mealType" id="mealType">
             <option value="All">All</option>

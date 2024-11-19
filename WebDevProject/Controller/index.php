@@ -139,8 +139,8 @@
                 $minCal = filter_input(INPUT_POST, 'minCal');
                 $maxCal = filter_input(INPUT_POST, 'maxCal');
                 $mealType = filter_input(INPUT_POST, 'mealType');
-        
-                $recipes = filter_recipes($minCal, $maxCal, $minCook, $maxCook, $mealType);
+                $search = filter_input(INPUT_POST, 'search');
+                $recipes = filter_recipes($minCal, $maxCal, $minCook, $maxCook, $mealType, $search);
 
                 include '../View/recipeView.php';
                 break;

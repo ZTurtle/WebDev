@@ -67,10 +67,65 @@ footer {
 footer p {
     margin: 5px 0;                    
 }
-.row {
-    border-top: 5px solid red;
-    color: red;
+/*NEW */
+td, th {
+    text-align: left;
+    border-radius: 5%;
+    border-spacing: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 10%;
+    padding-right: 10%;
 }
-label{
-background-color: red;
+th {
+    padding-bottom: 5%;
+}
+
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+
+}
+* {
+    box-sizing: border-box;
+  }
+  
+  .row {
+    margin-left:-5px;
+    margin-right:-5px;
+  }
+    
+.column {
+    float: left;
+    width:20%;
+    padding: 5px;
+}
+  
+  /* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+.add {
+    background-color: lightgrey;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    box-shadow: 5px 5px 5px #999;
+    border-radius: 5%;
+    margin-bottom: 10px;
+  }
+.cardLabels{
+  font-size: medium;
+  font-weight: bold;
+}
+.labelContent{
+  font-size: small;
+  padding-left: 0;
+  margin: 0;
+}
+tr{
+  border-radius: 5%;
 }
