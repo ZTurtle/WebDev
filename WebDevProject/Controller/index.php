@@ -87,14 +87,10 @@
 
             break;
         case 'log_out':
-<<<<<<< HEAD
             session_unset();
             session_destroy();
             header('Location: ..');
             break;
-=======
-
->>>>>>> 8b3130a072c730792e56c9a1662a61f8002d12aa
         case 'home': 
             $fname= $_SESSION['fname'];
             $userID= $_SESSION['userID'];
@@ -223,6 +219,7 @@
                 echo "error no file uploaded";
             }
             //echo "$CookTime, $Cal, $mealType, $URL, $Name, $filePath";
+            echo $filePath;
             edit_recipe($_SESSION['userID'],$CookTime, $Cal, $mealType, $URL, $Name, $filePath, $RecipeID);
             header('Location: .?action=recipe_view');
             break;

@@ -31,7 +31,32 @@ function delete_recipe($RecipeID){
 }
 function edit_recipe($UserID,$CookTime, $Cal, $mealType, $URL, $Name, $filePath, $RecipeID){
     global $db;
-    $query = 'UPDATE recipes
+    $query = "UPDATE recipes
+    SET
+    UserID = :UserID, ";
+
+    if($CookTime != ""){
+        $query .= 'CookTime = :CookTime, ';
+    }
+    if($Cal != ""){
+        $query .= 'Cal = :Cal, ';
+    }
+    if($mealType != ""){
+        $query .= 'MealType = :MealType, ';
+    }
+    if($URL != ""){
+        $query .= 'URL = :URL, ';
+    }
+    if($Name != ""){
+        $query .= 'RecipeName = :RecipeName, ';
+    }
+    if($filePath != "../Model/images/"){
+        $query .= 'ImageURL = :ImageURL, ';
+    }
+    $query = rtrim($query, ", ");
+    $query .= " WHERE RecipeID = :RecipeID";
+    echo $query;
+    /*$query = 'UPDATE recipes
     SET
     UserID = :UserID,
     RecipeName = :RecipeName,
@@ -40,16 +65,29 @@ function edit_recipe($UserID,$CookTime, $Cal, $mealType, $URL, $Name, $filePath,
     Cal = :Cal,
     URL = :URL,
     ImageURL = :ImageURL
-    WHERE RecipeID = :RecipeID';
+    WHERE RecipeID = :RecipeID';*/
 
     $statement = $db->prepare($query);
+
     $statement->bindValue(':UserID',$UserID );
+    if($Name != ""){
     $statement->bindValue(':RecipeName', $Name);
+    }
+    if($mealType != ""){
     $statement->bindValue(':MealType', $mealType);
+    }
+    if($CookTime != ""){
     $statement->bindValue(':CookTime', $CookTime);
+    }
+    if($Cal != ""){ 
     $statement->bindValue(':Cal', $Cal);
+    }
+    if($URL != ""){
     $statement->bindValue(':URL', $URL);
+    }
+    if($filePath != "../Model/images/"){
     $statement->bindValue(':ImageURL', $filePath);
+    }
     $statement->bindValue(':RecipeID',$RecipeID );
     $statement->execute();
     $statement->closeCursor();

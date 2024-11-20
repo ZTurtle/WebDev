@@ -19,6 +19,7 @@ h3 {
     margin-top: 0;
     margin-bottom: 0;
 
+
 }
 * {
     box-sizing: border-box;
@@ -209,4 +210,9 @@ input[type=text]{
   border: 3px;
   border-color: white;
   color:black;
+}
+img {
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px #999;
+
 }
