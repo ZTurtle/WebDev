@@ -87,14 +87,11 @@
 
             break;
         case 'log_out':
-<<<<<<< HEAD
             session_unset();
             session_destroy();
             header('Location: ..');
             break;
-=======
 
->>>>>>> 8b3130a072c730792e56c9a1662a61f8002d12aa
         case 'home': 
             $fname= $_SESSION['fname'];
             $userID= $_SESSION['userID'];

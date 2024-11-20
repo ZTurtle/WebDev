@@ -30,5 +30,18 @@
         </table> 
     </body>
     <h2>What date(s) would you like to use this plan for?</h2>
-    
+    <form method="post" action=".">
+        <input type= "hidden" name= "action" value="">
+        <?php
+        foreach ($twoWeekDates as $date) {
+            echo '<div>';
+            echo '<input type="checkbox" name="selected_dates[]" value="' . $date['date'] . '">';
+            echo '<label>' . $date['day'] . ', ' . $date['date'] . '</label>';
+            echo '</div>';
+        }    
+        ?>
+        <button type="submit">Submit</button>
+
+    </form>
+
 </html>
