@@ -15,15 +15,14 @@
     <h1>My Meal Planner</h1>
     <main>
         <div class="box"> 
-            <form action="C:/xampp2/htdocs/WebDev/WebDevProject/index.php" method="post">
-
+            <form action="Controller/index.php" method="post">
                 <input type="hidden" name="action" value="login">
                 <div id="buttons">
                     <label>&nbsp;</label>
                     <input type="submit" value="login">
                 </div>
             </form>
-            <form action="C:/xampp2/htdocs/WebDev/WebDevProject/index.php" method="post">
+            <form action="Controller/index.php" method="post">
                 <input type="hidden" name="action" value="register">
                 <div id="buttons">
                     <label>&nbsp;</label>
