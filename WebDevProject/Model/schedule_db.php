@@ -108,13 +108,14 @@ function clear_schedule($scheduleDate){
 }
 
 function getDatesForTwoWeeks() {
+    //returns: array of strings represent the date for current week and following week 
     $dates = [];
     $currentDate = new DateTime();
     $currentDate->modify('this week'); // Start from the first day of this week
 
     for ($i = 0; $i < 14; $i++) { // Loop for 14 days (2 weeks)
         $dates[] = [
-            'date' => $currentDate->format('Y-m-d'), // Date in 'YYYY-MM-DD' format
+            'date' => $currentDate->format('m-d-Y'), 
             'day' => $currentDate->format('l')       // Day of the week (e.g., Monday)
         ];
         $currentDate->add(new DateInterval('P1D')); // Move to the next day

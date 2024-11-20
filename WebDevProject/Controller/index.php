@@ -91,6 +91,7 @@
             session_destroy();
             header('Location: ..');
             break;
+
         case 'home': 
             $fname= $_SESSION['fname'];
             $userID= $_SESSION['userID'];
