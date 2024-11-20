@@ -5,9 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>    
 </head>
-
+<main>
 <body>
 
     <h2>Welcome, <?php echo $fname;?> </h2>
@@ -29,7 +30,7 @@
                     <td> <?php echo $recipe['MealType'];?></td>
                     <td> <?php echo $recipe['Cal'];?></td>
                     <td><a href="<?php echo $recipe['URL']?>" target="_blank"> <!--Come back to fix coloing -->
-                        <i class="fas fa-link"></i> </a> </td>
+                    <span class="iconify" data-icon="twemoji:link" data-inline="true"></span> </a> </td>
 
             </tr>
             <?php endforeach;?>
@@ -39,3 +40,5 @@
     </div>
 
 </body>
+</main>
+</html>
