@@ -251,6 +251,19 @@
 
             include('../View/usePlan_form.php');
             break;
+        case 'add_plan_to_schedule':
+            $planDates= filter_input(INPUT_POST, 'selected_dates', FILTER_DEFAULT, FILTER_FORCE_ARRAY);
+            $mealplanid= filter_input(INPUT_POST,'mealplanid',FILTER_VALIDATE_INT);
+            $userID= $_SESSION['userID'];
+            var_dump($planDates);// string of dates 
+
+            foreach ($planDates as $date) {
+                add_plans_to_schedule($userID,$mealplanid,$date);
+            }
+            
+            header('Location: .?action=saved_plans');
+
+            break;
 
         case 'edit_plan':
             $mealplanid= filter_input(INPUT_POST,'mealplanid',FILTER_VALIDATE_INT);
@@ -279,7 +292,7 @@
             header('Location: .?action=saved_plans');
             break;
 
-        case 'add_plan_to_schedule':
+        case 'create_new_plan':
             //adding after creation form
             $userID= $_SESSION['userID'];
             $SelectedRecipes= filter_input(INPUT_POST,'recipeIDs',FILTER_DEFAULT,FILTER_FORCE_ARRAY);
@@ -292,8 +305,8 @@
             break; 
         
         case 'newPlanForm':
-            $recipes = all_recipes();
-            include '../View/add_new_plan.php';
+            $recipes = get_all_recipes($_SESSION['userID']);
+            include '../View/create_new_plan.php';
             break;
         default:
         echo 'No case chosen';

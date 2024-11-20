@@ -5,7 +5,7 @@
 </head>
 <body>
 <form action = "../Controller/index.php" method = "post">
-<input type="hidden" name="action" value="add_plan_to_schedule">
+<input type="hidden" name="action" value="create_new_plan">
 <div class="row">
 <?php foreach ($recipes as $recipe) :?>
     <div class = "column">
@@ -15,7 +15,7 @@
                 <tr class = "add">
                 <td class = "add">
 <?php 
-                        if ( strlen($recipe['RecipeName'])> 20){
+                        if (strlen($recipe['RecipeName'])> 20){
                                 $name = substr($recipe['RecipeName'], 0,16) . "...";
                         }
                         else{

@@ -31,7 +31,8 @@
     </body>
     <h2>What date(s) would you like to use this plan for?</h2>
     <form method="post" action=".">
-        <input type= "hidden" name= "action" value="">
+        <input type= "hidden" name= "action" value="add_plan_to_schedule">
+        <input type="hidden" name="mealplanid" value="<?php echo $mealplanid; ?>">
         <?php
         foreach ($twoWeekDates as $date) {
             echo '<div>';

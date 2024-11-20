@@ -1,5 +1,54 @@
 
 <?php 
+function add_plans_to_schedule($userid,$mealplanid, $date){
+    global $db;
+    // Convert the date to the correct format
+    $dateobject = $dateobject = DateTime::createFromFormat('m-d-Y', $date);
+    $DateString = $dateobject->format('Y-m-d');
+
+    // Check if a schedule already exists for that date
+    $query = 'SELECT * FROM Schedule WHERE MealDate = :date';
+    $stmt = $db->prepare($query);
+    $stmt->bindValue(':date', $DateString);
+    $stmt->execute();
+    $usedPlan = $stmt->fetchAll();
+
+    if (empty($usedPlan)) {
+        // If no plan exists for this date, add it to the schedule
+        $query = 'INSERT INTO Schedule (UserID,MealPlanID, MealDate) VALUES (:userID,:mealplanid, :date)';
+        $stmt = $db->prepare($query);
+        $stmt->bindValue(':userID',$userid);
+        $stmt->bindValue(':mealplanid', $mealplanid);
+        $stmt->bindValue(':date', $DateString);
+        $stmt->execute();
+    } else {
+        // If a plan already exists for the date, remove the old schedule
+        $query = 'DELETE FROM Schedule WHERE MealDate = :date';
+        $stmt = $db->prepare($query);
+        $stmt->bindValue(':date', $DateString);
+        $stmt->execute();
+
+        // Add the new plan to the schedule
+        $query = 'INSERT INTO Schedule (UserID,MealPlanID, MealDate) VALUES (:userID,:mealplanid, :date)';
+        $stmt = $db->prepare($query);
+        $stmt->bindValue(':userID',$userid);
+        $stmt->bindValue(':mealplanid', $mealplanid);
+        $stmt->bindValue(':date', $DateString);
+        $stmt->execute();
+    }
+}
+
+
+function get_scheduleid_by_mealdate($mealdate){
+    //returns: schedule id 
+    //input:mealdate formatted 'Y-m-d'
+    global $db;
+    $query='Select ScheduleID from schedule where MealDate=:mealdate';
+    $stmt = $db->prepare($query);
+    $stmt->bindValue(':mealdate', $mealdate);
+    $stmt->execute();
+    $scheduleid= $stmt->fetch();
+}
 function get_mealplanid($userid,$Date){
     //Returns: The a singular mealpan id from Schedule table for a certain date. Will return false if no meal plan scheduled for that day.
     //Input: $userid: user's id, $Date: DateTime Object 
