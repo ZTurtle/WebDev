@@ -87,10 +87,14 @@
 
             break;
         case 'log_out':
+<<<<<<< HEAD
             session_unset();
             session_destroy();
             header('Location: ..');
             break;
+=======
+
+>>>>>>> 8b3130a072c730792e56c9a1662a61f8002d12aa
         case 'home': 
             $fname= $_SESSION['fname'];
             $userID= $_SESSION['userID'];
@@ -241,8 +245,13 @@
             break;
 
         case 'use_plan':
-            //add selected plan to schedule 
+            //add selected plan to schedule
+            $mealplanid= filter_input(INPUT_POST,'mealplanid',FILTER_VALIDATE_INT);
+            $recipes= get_recipes_by_mealplanid($mealplanid);
+            $twoWeekDates= getDatesForTwoWeeks();
+        
 
+            include('../View/usePlan_form.php');
             break;
 
         case 'edit_plan':
