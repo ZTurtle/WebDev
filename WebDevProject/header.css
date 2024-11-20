@@ -1,6 +1,7 @@
 .headerColumn{
     float: left;
-    width: 25%;
+    width: 20%;
+    
 }
 .headerRow:after{
     content: "";
@@ -27,7 +28,8 @@
     text-align: center;
     font-size:x-large;
     box-shadow: 5px 5px 5px #999;
-    border:none;
+    border: none;
+
 }
 .headerButton:hover{
     background-color: color-mix(in srgb, black 10%, lightblue 90%);

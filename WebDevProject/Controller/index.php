@@ -6,6 +6,7 @@
     include '../Model/filters.php';
     include '../Model/recipe_db.php';
     include '../Model/mealPlan_db.php';
+    
 
     session_start();
     
@@ -86,7 +87,10 @@
 
             break;
         case 'log_out':
-            
+            session_unset();
+            session_destroy();
+            header('Location: ..');
+            break;
         case 'home': 
             $fname= $_SESSION['fname'];
             $userID= $_SESSION['userID'];
