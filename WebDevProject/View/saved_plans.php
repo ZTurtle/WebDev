@@ -13,17 +13,17 @@
     <?php foreach ($MealPlanIDs as $PlanID){?>
     <div class="box">
         
-        <table>
+        <table class="custom-table">
             <tr>
-                <th>Type</th>
                 <th> Recipe </th>
+                <th>Type</th>
+                
             </tr>
             <?php $mealPlanRecipes= get_recipes_by_mealplanid($PlanID['MealPlanID']);
             foreach ($mealPlanRecipes as $recipe) { ?>
             <tr>
-                <td><?php echo $recipe['MealType'];?></td>
                 <td><?php echo $recipe['RecipeName'];?></td>
-                
+                <td><?php echo $recipe['MealType'];?></td>
             </tr>
             <?php }?>
         </table>

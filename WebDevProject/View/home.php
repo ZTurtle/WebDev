@@ -11,7 +11,7 @@
 <main>
 <body>
 
-    <h2>Welcome, <?php echo $fname;?> </h2>
+    <h2 class="Welcome">Welcome, <?php echo $fname;?> </h2>
     <div class="box">
         <h2> Today's Meals</h2>
         <?php if ($recipes == false){?>

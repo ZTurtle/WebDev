@@ -10,7 +10,7 @@
 <html>
     <body>
         <h2>Recipes in this meal plan:</h2>
-        <table>
+        <table class="custom-table-small">
             <tr>
                 <th>Meal</th>
                 <th>Type</th>

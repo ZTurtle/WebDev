@@ -8,21 +8,25 @@
 <body>
     <h1>Weekly Meals</h1>
     <!-- buttons to view next week and this week-->
-    <form action= "."method="post">
-        <input type= "hidden" name= "action" value= "weekly_schedule">
-        <input type = "hidden" name= week_date value= "<?php echo date('Y-m-d', strtotime('+7 days'))?>">
-        <button type = "submit" > Next Week</button>
+    <div class="button-container">
+    <form action="." method="post">
+        <input type="hidden" name="action" value="weekly_schedule">
+        <input type="hidden" name="week_date" value="<?php echo date('Y-m-d')?>">
+        <button type="submit">This Week</button>
+    </form>
+    <form action="." method="post">
+        <input type="hidden" name="action" value="weekly_schedule">
+        <input type="hidden" name="week_date" value="<?php echo date('Y-m-d', strtotime('+7 days'))?>">
+        <button type="submit">Next Week</button>
     </form>
 
-    <form action= "." method="post">
-        <input type= "hidden" name= "action" value= "weekly_schedule">
-        <input type = "hidden" name= week_date value= "<?php echo date('Y-m-d')?>">
-        <button type = "submit" > This Week</button>
-    </form>
+    
+    </div>
 
     <!-- Schedule Presentation-->
     <?php foreach ($week as $day): //for each day of the week ?>
         <div class="box">
+            <br><br>
             <h2> <?php echo $day->format('l'); echo ' ('.$day->format('m-d-Y').')'?> </h2>
 
             <?php $recipes= get_mealplan_by_date($day,$_SESSION['userID']); 
@@ -47,7 +51,7 @@
                     </tr>
                     <?php endforeach;?>
             </table> <br>
-            <p> Total Cal = <?php echo get_mealplan_calories($recipes);?></p>
+            <p> <?php echo get_mealplan_calories($recipes);?> Calories</p>
             <!-- Form to clear schedule -->
 
             <form action= "."method="post">
@@ -55,6 +59,7 @@
                         <input type="hidden" name="schedule_date" value= "<?php echo $day->format('Y-m-d') ?>">
                         <button type = "submit" onclick="return confirm('Are you sure you want to clear the schedule for <?php echo $day->format('l'); echo ' ('.$day->format('m-d-Y').')'?>?')"> Clear Schedule</button>
             </form>
+            <br><br>
             <?php }?>
         </div>
     <?php endforeach;?>
