@@ -7,9 +7,10 @@ function add_plans_to_schedule($userid,$mealplanid, $date){
     $DateString = $dateobject->format('Y-m-d');
 
     // Check if a schedule already exists for that date
-    $query = 'SELECT * FROM Schedule WHERE MealDate = :date';
+    $query = 'SELECT * FROM Schedule WHERE MealDate = :date and UserID=:userid';
     $stmt = $db->prepare($query);
     $stmt->bindValue(':date', $DateString);
+    $stmt->bindValue(':userid', $userid);
     $stmt->execute();
     $usedPlan = $stmt->fetchAll();
 
@@ -23,9 +24,10 @@ function add_plans_to_schedule($userid,$mealplanid, $date){
         $stmt->execute();
     } else {
         // If a plan already exists for the date, remove the old schedule
-        $query = 'DELETE FROM Schedule WHERE MealDate = :date';
+        $query = 'DELETE FROM Schedule WHERE MealDate = :date and UserID=:userid';
         $stmt = $db->prepare($query);
         $stmt->bindValue(':date', $DateString);
+        $stmt->bindValue(':userid', $userid);
         $stmt->execute();
 
         // Add the new plan to the schedule
@@ -39,7 +41,7 @@ function add_plans_to_schedule($userid,$mealplanid, $date){
 }
 
 
-function get_scheduleid_by_mealdate($mealdate){
+/* function get_scheduleid_by_mealdate($mealdate){
     //returns: schedule id 
     //input:mealdate formatted 'Y-m-d'
     global $db;
@@ -48,7 +50,7 @@ function get_scheduleid_by_mealdate($mealdate){
     $stmt->bindValue(':mealdate', $mealdate);
     $stmt->execute();
     $scheduleid= $stmt->fetch();
-}
+} */
 function get_mealplanid($userid,$Date){
     //Returns: The a singular mealpan id from Schedule table for a certain date. Will return false if no meal plan scheduled for that day.
     //Input: $userid: user's id, $Date: DateTime Object 

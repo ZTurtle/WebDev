@@ -153,7 +153,7 @@
 
 
         case 'recipe_view':
-            $recipes = all_recipes();
+            $recipes = get_all_recipes($_SESSION['userID']);
             include '../View/recipeView.php';
             break;
 
