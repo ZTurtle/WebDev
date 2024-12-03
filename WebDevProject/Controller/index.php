@@ -180,9 +180,9 @@
             else {
                 echo "error no file uploaded";
             }
-            //echo "$CookTime, $Cal, $mealType, $URL, $Name, $filePath";
-            new_recipe($_SESSION['userID'],$CookTime, $Cal, $mealType, $URL, $Name, $filePath);
-            header('Location: .?action=recipe_view');
+            echo "$CookTime, $Cal, $mealType, $URL, $Name, $filePath";
+            // new_recipe($_SESSION['userID'],$CookTime, $Cal, $mealType, $URL, $Name, $filePath);
+            // header('Location: .?action=recipe_view');
 
             break;
         case 'delete_recipe':

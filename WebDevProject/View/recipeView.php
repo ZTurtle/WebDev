@@ -40,6 +40,7 @@ $recipes = [
 
 ?>
 
+<?php echo "hello"?>
 
 <?php include 'pageHeader.php' ?>
 <head>
@@ -89,6 +90,7 @@ $recipes = [
         </ul>
     </div>
     <div class = "moveRight">
+
     <main>
         <div class="row">
             <?php foreach ($recipes as $recipe) :?>
@@ -98,6 +100,7 @@ $recipes = [
                 </tr>
                 <tr>
                 <td>
+                    
                     <?php 
                         if ( strlen($recipe['RecipeName'])> 20){
                                 $name = substr($recipe['RecipeName'], 0,16) . "...";
@@ -109,7 +112,7 @@ $recipes = [
                         '<br>'. '<h3>'. $name . '</h3>'. 
                         //'<input type="checkbox" class ="check" name="selected[]" value="'. $recipe['RecipeID']. '">'.
                         '<form action = "../Controller/index.php" method = "post">'.
-                        '<br>'. '<img src = "' . $recipe['ImageURL'].  ' "width = "150" height="150" alt = "Recipe Image">' . '<br>' .
+                        '<br>'. '<img src = "' . $recipe['ImageURL'].  '" width = "150" height="150" alt = "Recipe Image">' . '<br>' .
                         '<input type="hidden" name="RecipeID" value="'. $recipe['RecipeID']. '">'.
                         '<br>'.'<span class="cardLabels"> Type:</span>'. '<span class= "labelContent">'. $recipe['MealType'] .'</span>'. '<br>' .
                         '<br>'.'<span class="cardLabels"> Cook Time:</span>'. '<span class= "labelContent">' . $recipe['CookTime'] . '<br>' .
