@@ -123,7 +123,6 @@
             }
 
             $week= getWeekDates($dateString); 
-            echo $dateString;
 
             
 

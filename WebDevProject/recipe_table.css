@@ -24,11 +24,7 @@ h3 {
 * {
     box-sizing: border-box;
   }
-  
-  .row {
-    margin-left:-5px;
-    margin-right:-5px;
-  }
+
     
 .column {
     float: left;
