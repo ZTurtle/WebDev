@@ -1,8 +1,8 @@
 # Running our project
 - Step 1
-    - dowload project zip
+    - download project zip
 - Step 2
-    - Run MySQL and Apache throuhg XAMPP
+    - Run MySQL and Apache through XAMPP
 - Step 3
     - go into PhpMyAdmin and upload all the required sql documents
         - create_database.sql
