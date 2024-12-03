@@ -39,9 +39,6 @@ $recipes = [
 
 
 ?>
-
-<?php echo "hello"?>
-
 <?php include 'pageHeader.php' ?>
 <head>
     <title>Recipe List</title>
