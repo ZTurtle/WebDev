@@ -40,17 +40,6 @@ function add_plans_to_schedule($userid,$mealplanid, $date){
     }
 }
 
-
-/* function get_scheduleid_by_mealdate($mealdate){
-    //returns: schedule id 
-    //input:mealdate formatted 'Y-m-d'
-    global $db;
-    $query='Select ScheduleID from schedule where MealDate=:mealdate';
-    $stmt = $db->prepare($query);
-    $stmt->bindValue(':mealdate', $mealdate);
-    $stmt->execute();
-    $scheduleid= $stmt->fetch();
-} */
 function get_mealplanid($userid,$Date){
     //Returns: The a singular mealpan id from Schedule table for a certain date. Will return false if no meal plan scheduled for that day.
     //Input: $userid: user's id, $Date: DateTime Object 
@@ -69,9 +58,6 @@ function get_mealplanid($userid,$Date){
     else {
         return $mealplanid['MealPlanID']; 
     }
-
-    
-
 }
 
 function get_recipes_by_mealplanid($mealplanid){
@@ -90,7 +76,6 @@ function get_recipes_by_mealplanid($mealplanid){
 
     $statement->closeCursor();
     return $recipes;
-    // return $recipes;  
 
 }
 

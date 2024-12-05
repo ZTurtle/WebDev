@@ -42,7 +42,6 @@ function add_meal_plan($mealplanid, $recipes, $userID){
     $statement->bindValue(':UserID', $userID);
     $statement->execute();
     $statement->closeCursor();
-    //may not need mealplanID if autoincre
     
     foreach($recipes as $recipe):
         $query = 'INSERT INTO meal_plan_recipes

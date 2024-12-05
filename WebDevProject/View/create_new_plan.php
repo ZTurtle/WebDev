@@ -14,7 +14,7 @@
                 </tr>
                 <tr class = "add">
                 <td class = "add">
-<?php 
+                    <?php 
                         if (strlen($recipe['RecipeName'])> 20){
                                 $name = substr($recipe['RecipeName'], 0,16) . "...";
                         }

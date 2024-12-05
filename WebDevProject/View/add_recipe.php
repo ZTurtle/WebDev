@@ -3,7 +3,7 @@
     ?>
 
 <!DOCTYPE HTML>
-<!-- Description: Home page four user
+<!-- Description: Home page for user
 Version: 2024/11/4 -->
 <html>
 <head>

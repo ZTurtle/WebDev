@@ -21,6 +21,10 @@
 
 ### Step 5: Start Using the Website
 - You can now interact with the website, adding recipes, creating meal plans, and scheduling meals.
+- There is a tester account with recipes already uploaded:
+  - Login information:
+    - Username: Test
+    - Password: pa55word
 
 ---
 

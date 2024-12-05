@@ -18,7 +18,7 @@ Version: 2024/11/4 -->
     <div class = "centered">
         <h1> Previous Recipe </h1>
         
-    <?php 
+                    <?php 
                         if ( strlen($recipe['RecipeName'])> 20){
                                 $name = substr($recipe['RecipeName'], 0,16) . "...";
                         }

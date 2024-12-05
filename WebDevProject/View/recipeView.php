@@ -69,7 +69,6 @@ include 'pageHeader.php'
                         }
                         echo 
                         '<br>'. '<h3>'. $name . '</h3>'. 
-                        //'<input type="checkbox" class ="check" name="selected[]" value="'. $recipe['RecipeID']. '">'.
                         '<form action = "../Controller/index.php" method = "post">'.
                         '<br>'. '<img src = "' . $recipe['ImageURL'].  '" width = "150" height="150" alt = "Recipe Image">' . '<br>' .
                         '<input type="hidden" name="RecipeID" value="'. $recipe['RecipeID']. '">'.

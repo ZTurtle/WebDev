@@ -6,7 +6,7 @@ $password= 'pa55word';
 
 
 try{
-    $db= new PDO($dsn, $username, $password);
+    $db= new PDO(dsn: $dsn, $username, $password);
 
 }
 catch (PDOException $e){

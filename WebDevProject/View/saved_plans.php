@@ -6,6 +6,7 @@
 </head>
 
 <body>
+    <br><br>
     <form action= "." method="post">
         <input type= "hidden" name= "action" value="newPlanForm">
         <button type = "submit" > Add New Meal Plan</button>

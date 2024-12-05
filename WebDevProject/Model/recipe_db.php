@@ -55,17 +55,6 @@ function edit_recipe($UserID,$CookTime, $Cal, $mealType, $URL, $Name, $filePath,
     }
     $query = rtrim($query, ", ");
     $query .= " WHERE RecipeID = :RecipeID";
-    echo $query;
-    /*$query = 'UPDATE recipes
-    SET
-    UserID = :UserID,
-    RecipeName = :RecipeName,
-    MealType = :MealType,
-    CookTime = :CookTime,
-    Cal = :Cal,
-    URL = :URL,
-    ImageURL = :ImageURL
-    WHERE RecipeID = :RecipeID';*/
 
     $statement = $db->prepare($query);
 
@@ -121,13 +110,6 @@ function remove_recipes_from_meal_plan($selectedRecipes, $mealplanid) {
         $stmt->bindValue(':RecipeID', $RecipeID);
         $stmt->bindValue(':mealplanid', $mealplanid);
         $stmt->execute();
-        
-       /*For debuggiing
-         if ($stmt->execute()) {
-            echo 'Recipe successfully removed';
-        } else {
-            echo 'Removal unsuccessful';
-        } */
     }
 }
 function add_recipes_to_meal_plan( $selectedRecipes, $mealplanid){
@@ -139,7 +121,6 @@ function add_recipes_to_meal_plan( $selectedRecipes, $mealplanid){
         $stmt = $db->prepare($query);
         $stmt->bindValue(':RecipeID', $RecipeID);
         $stmt->bindValue(':mealplanid', $mealplanid);
-        //$stmt->execute();
 
         if ($stmt->execute()) {
             echo 'Recipe successfully added';
