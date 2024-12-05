@@ -10,10 +10,11 @@
 
 ### Step 3: Set Up the Database
 1. Navigate to **PhpMyAdmin** (usually accessible at http://localhost/phpmyadmin).
-2. Upload the required SQL files depending on your preference:
+2. Make a database called meal_planner
+3. Upload the required SQL files depending on your preference:
    - `meal_planner.sql`: Use this file if you want the database pre-filled with sample data.
    - `create_database.sql`: Use this file to create an empty database structure without sample data.
-3. These SQL files will create the necessary tables and populate them (if using the pre-filled option).
+4. These SQL files will create the necessary tables and populate them (if using the pre-filled option).
 
 ### Step 4: Add user
   1. Add a user and grant all permissions
