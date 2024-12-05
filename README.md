@@ -17,9 +17,12 @@
 4. These SQL files will create the necessary tables and populate them (if using the pre-filled option).
 
 ### Step 4: Add user
-  1. Add a user and grant all permissions
+  1. Add a new user with the following credentials: 
     - Username: mp_user
+    - Hostname:localhost
     - Password: pa55word
+  2. Grant access to all (Global) priviledges 
+   
 
 ### Step 5: Access the Project in Your Browser
 - Open a web browser and navigate to the project folder on your local server. For example:  
