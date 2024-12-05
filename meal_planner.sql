@@ -23,13 +23,6 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
--- adding user
--- Privileges for `mp_user`@`localhost`
-
-GRANT ALL PRIVILEGES ON *.* TO `mp_user`@`localhost` IDENTIFIED BY PASSWORD '*F71B0AF6B232C58021B6AC63A29FCF13A4E46E59' WITH GRANT OPTION;
-
-GRANT ALL PRIVILEGES ON `meal\_planner`.* TO `mp_user`@`localhost`;
-
 --
 -- Table structure for table `meal_plans`
 --

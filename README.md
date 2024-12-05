@@ -15,11 +15,16 @@
    - `create_database.sql`: Use this file to create an empty database structure without sample data.
 3. These SQL files will create the necessary tables and populate them (if using the pre-filled option).
 
-### Step 4: Access the Project in Your Browser
+### Step 4: Add user
+  1. Add a user and grant all permissions
+    - Username: mp_user
+    - Password: pa55word
+
+### Step 5: Access the Project in Your Browser
 - Open a web browser and navigate to the project folder on your local server. For example:  
   `http://localhost/your_project_folder_name/`
 
-### Step 5: Start Using the Website
+### Step 6: Start Using the Website
 - You can now interact with the website, adding recipes, creating meal plans, and scheduling meals.
 - There is a tester account with recipes already uploaded:
   - Login information:
